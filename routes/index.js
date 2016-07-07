@@ -1,4 +1,4 @@
-const states = require('./states');
+const api = require('./api');
 
 
-module.exports={states};
+module.exports={api};
