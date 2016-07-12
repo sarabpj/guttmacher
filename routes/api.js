@@ -3,6 +3,11 @@ const router = express.Router()
 const knex = require('../db/knex')
 const locus = require('locus')
 
+
+router.get('/home', function(req,res,next){
+  res.render('layout')
+})
+
 //complete data file
 router.get('/v1', function(req, res, next) {
   knex('data_csv').select().then(function (data) {
@@ -13,6 +18,8 @@ router.get('/v1', function(req, res, next) {
     })
   })
 })
+
+
 
 //table 1.1
 router.get('/v1/table_1.1', function(req, res, next) {
@@ -28,7 +35,7 @@ router.get('/v1/table_1.1', function(req, res, next) {
 
 //table 1.2
 router.get('/v1/table_1.2', function(req, res, next) {
-  knex('data_csv').select('Postal_Code', 'NoB_15_19', 'NoB_15_17', 'NoB_18_19', 'NoB_14', 'NoA_15_19', 'NoA_15_17', 'NoA_14', 'NoF_15_19', 'NoF_15_17', 'NoF_18_19', 'NoF_14').then(function (data) {
+  knex('data_csv').select('US_State','Postal_Code', 'NoB_15_19', 'NoB_15_17', 'NoB_18_19', 'NoB_14', 'NoA_15_19', 'NoA_15_17', 'NoA_14', 'NoF_15_19', 'NoF_15_17', 'NoF_18_19', 'NoF_14').then(function (data) {
     res.format({
       json: function(){
         res.send(data)
@@ -124,6 +131,31 @@ router.get('/v1/table_1.8', function(req, res, next){
 //table 1.9
 router.get('/v1/table_1.9', function(req, res, next){
   knex('data_csv').select('Postal_Code', 'POP_H', 'POP_NHB', 'POP_NHW', 'POP_NHO', 'POP_15_19', 'POP_15_17', 'POP_18_19' ).then(
+    function (data) {
+    res.format({
+      json: function(){
+        res.send(data)
+      }
+    })
+  })
+})
+
+//notes
+router.get('/v1/notes', function(req, res, next){
+  knex('Notes').select('ID', 'Note' ).then(
+    function (data) {
+    res.format({
+      json: function(){
+        res.send(data)
+      }
+    })
+  })
+})
+
+
+//get info of state
+router.get('/v1/<state>', function(req, res, next){
+  knex('data_csv').select('ID').then(
     function (data) {
     res.format({
       json: function(){
