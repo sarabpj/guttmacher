@@ -17,7 +17,7 @@ $("#container").click(function(e){
 
     $('#statename').text(clickedState)
     pieData(clickedState)
-    // chart([54,23,10])
+    
 });
 
 
@@ -40,22 +40,24 @@ function pieData(clickedState){
 
 }
 
-
+//appends pie chat
 function chart(arr){
  
   var data = arr;
   var r =50;
   var color = d3.scale.category10()
 
+
   //canvas
-  var canvas = d3.select('body').append('svg')
-    .attr('width', 100)
-    .attr('height', 100);
+  var canvas = d3.select('#pieChart')
 
   //store visualization
-  var group = canvas.append('g')
+  if(!group){
+  var group = canvas.append('svg')
+    .attr('width', 100)
+    .attr('height', 100).append('g')
     .attr('transform', 'translate(50,50)')
-
+  }
   //arc path generator
   var arc = d3.svg.arc()
     .innerRadius(0)
@@ -65,6 +67,7 @@ function chart(arr){
   var pie = d3.layout.pie()
     .value(function(d){return d;})
 
+  //update...
   var arcs = group.selectAll(".arc")
     .data(pie(data))
     .enter()
@@ -84,6 +87,8 @@ function chart(arr){
     .text(function(d){ return d.data})
     
  
+
+
 }
 
 
