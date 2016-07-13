@@ -9,61 +9,61 @@ $("#container").click(function(e){
     
 });
 
-
-//gives back the data i need for the first
+var svg;
+//gives back the data line graph
 function lineData(clickedState){
 
-  var arr =[]
-  d3.json('v1/chart2', function(data){
-    var stateData = data.filter(val =>{
-          return val['US_State'] === clickedState;
-    })[0] 
-    //data for chart
-    console.log(stateData)
-  //  
-    arr.push({label:"Pregnancy Rate", 
-      x:[1988, 1992, 1996, 2000, 2005, 2010, 2011], 
-      y:[parseFloat(stateData.PR_1988.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_1992.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_1996.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2000.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2005.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2010.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2011.replace(/,|_|\[.*\]/g,''))]},
-      {label:"Abortion Rate", 
-      x:[1988, 1992, 1996, 2000, 2005, 2010, 2011], 
-      y:[parseFloat(stateData.AR_1988.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_1992.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_1996.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2000.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2005.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2010.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2011.replace(/,|_|\[.*\]/g,''))]},
-      {label:"Birth Rate", 
-      x:[1988, 1992, 1996, 2000, 2005, 2010, 2011], 
-      y:[parseFloat(stateData.BR_1988.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_1992.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_1996.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2000.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2005.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2010.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2011.replace(/,|_|\[.*\]/g,''))]}
-      )
-    console.log(arr)
+      var arr =[]
+      d3.json('v1/chart2', function(data){
+        var stateData = data.filter(val =>{
+        return val['US_State'] === clickedState;
+        })[0] 
+        //data for chart
+        arr.push({label:"Pregnancy Rate", 
+          x:[1988, 1992, 1996, 2000, 2005, 2010, 2011], 
+          y:[parseFloat(stateData.PR_1988.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_1992.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_1996.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2000.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2005.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2010.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.PR_2011.replace(/,|_|\[.*\]/g,''))]},
+          {label:"Abortion Rate", 
+          x:[1988, 1992, 1996, 2000, 2005, 2010, 2011], 
+          y:[parseFloat(stateData.AR_1988.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_1992.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_1996.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2000.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2005.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2010.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.AR_2011.replace(/,|_|\[.*\]/g,''))]},
+          {label:"Birth Rate", 
+          x:[1988, 1992, 1996, 2000, 2005, 2010, 2011], 
+          y:[parseFloat(stateData.BR_1988.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_1992.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_1996.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2000.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2005.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2010.replace(/,|_|\[.*\]/g,'')),parseFloat(stateData.BR_2011.replace(/,|_|\[.*\]/g,''))]})
+        
+        currentSvg = document.getElementById("lineChart")
 
-var xy_chart = d3_xy_chart()
-    .width(560)
-    .height(200)
-    .xlabel("X Axis")
-    .ylabel("Y Axis") ;
-var svg = d3.select("body").append("svg")
-    .datum(arr)
-    .call(xy_chart) ;
+        currentSvg.innerHTML = ''
+
+        svg = d3.select("#lineChart").append("svg")
+            .datum(arr)
+            .call(d3_xy_chart()) ;
+    })
+}
+
 
 function d3_xy_chart() {
-    var width = 540,  
-        height = 280, 
-        xlabel = "X Axis Label",
-        ylabel = "Y Axis Label" ;
-    
+    var width = 360,  
+        height = 200
+
+    //selection is the complete array
     function chart(selection) {
+        //datasets is the individual array
         selection.each(function(datasets) {
-            var margin = {top: 30, right: 110, bottom: 30, left: 50}, 
+            //create plot
+            var margin = {top: 30, right: 110, bottom: 50, left: 70}, 
                 innerwidth = width - margin.left - margin.right,
                 innerheight = height - margin.top - margin.bottom ;
             
+            //create x scale
             var x_scale = d3.scale.linear()
+            //defines the available area to render graph
                 .range([0, innerwidth])
-                .domain([ d3.min(datasets, function(d) { return d3.min(d.x); }), 
-                          d3.max(datasets, function(d) { return d3.max(d.x); }) ]) ;
-            
+            //defines the max and min values that we have to plot
+                .domain([ 1988, 2012 ]) ;
+            //create y scale
             var y_scale = d3.scale.linear()
                 .range([innerheight, 0])
-                .domain([ d3.min(datasets, function(d) { return d3.min(d.y); }),
-                          d3.max(datasets, function(d) { return d3.max(d.y); }) ]) ;
-
+                .domain([ 10, 175 ]) ;
+            //
             var color_scale = d3.scale.category10()
                 .domain(d3.range(datasets.length)) ;
 
@@ -92,50 +92,76 @@ function d3_xy_chart() {
                 .x(function(d) { return x_scale(d[0]); })
                 .y(function(d) { return y_scale(d[1]); }) ;
 
+
+
+
+
             var svg = d3.select(this)
                 .attr("width", width)
                 .attr("height", height)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")") ;
-            
+            //append grid
             svg.append("g")
                 .attr("class", "x grid")
                 .attr("transform", "translate(0," + innerheight + ")")
                 .call(x_grid) ;
 
+            //append y grid
             svg.append("g")
                 .attr("class", "y grid")
                 .call(y_grid) ;
 
+            //append x axis
             svg.append("g")
                 .attr("class", "x axis")
                 .attr("transform", "translate(0," + innerheight + ")") 
                 .call(x_axis)
-                .append("text")
-                .attr("dy", "-.71em")
                 .attr("x", innerwidth)
+                .selectAll("text")  
+                    .style("text-anchor", "end")
+                    .attr("dx", "-.8em")
+                    .attr("dy", ".15em")
+                    .attr("transform", function(d) {
+                        return "rotate(-65)" 
+                    })
+        
+        //xlabel not appending
+            svg.append("text")
+                .attr("transform","translate(" + (width/2) + " ," + (height+margin.bottom) + ")")
+                .style("text-anchor", "middle")
+                .text('Year');
+            //ylabel
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("x", margin.top - (height / 2))
+                .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text(xlabel) ;
-            
+                .text("# of Pregnancies, Births, Abortions per 1,000 women aged 15-19");
+                    
+            //append y axis
             svg.append("g")
                 .attr("class", "y axis")
                 .call(y_axis)
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
-                .attr("dy", "0.71em")
-                .style("text-anchor", "end")
-                .text(ylabel) ;
+                .attr("dy", "0.11em")
+                .style("text-anchor", "end");
 
-            var data_lines = svg.selectAll(".d3_xy_chart_line")
+
+            var data_lines = svg.selectAll(".data_line")
                 .data(datasets.map(function(d) {return d3.zip(d.x, d.y);}))
                 .enter().append("g")
-                .attr("class", "d3_xy_chart_line") ;
-            
+                .attr("class", "data_line") ;
+
+            //add the valueline path
             data_lines.append("path")
                 .attr("class", "line")
                 .attr("d", function(d) {return draw_line(d); })
-                .attr("stroke", function(_, i) {return color_scale(i);}) ;
+                .attr("stroke", function(_, i) {return color_scale(i);})
+                .attr('fill', 'none') ;
             
             data_lines.append("text")
                 .datum(function(d, i) { return {name: datasets[i].label, final: d[d.length-1]}; }) 
@@ -143,45 +169,18 @@ function d3_xy_chart() {
                     return ( "translate(" + x_scale(d.final[0]) + "," + 
                              y_scale(d.final[1]) + ")" ) ; })
                 .attr("x", 3)
-                .attr("dy", ".35em")
+                .attr("dy", ".25em")
                 .attr("fill", function(_, i) { return color_scale(i); })
                 .text(function(d) { return d.name; }) ;
+        
+
 
         }) ;
     }
 
-    chart.width = function(value) {
-        if (!arguments.length) return width;
-        width = value;
-        return chart;
-    };
-
-    chart.height = function(value) {
-        if (!arguments.length) return height;
-        height = value;
-        return chart;
-    };
-
-    chart.xlabel = function(value) {
-        if(!arguments.length) return xlabel ;
-        xlabel = value ;
-        return chart ;
-    } ;
-
-    chart.ylabel = function(value) {
-        if(!arguments.length) return ylabel ;
-        ylabel = value ;
-        return chart ;
-    } ;
 
     return chart;
+
   }
-
-  })
-
-}
-
-
-
 
 });
