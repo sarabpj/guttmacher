@@ -1,6 +1,6 @@
 
 $(document).ready(function(){ 
-//not sure how this was appeneded to the layout    
+
  var map = new Datamap({
       element: document.getElementById('container'), 
       scope:'usa',
@@ -24,50 +24,47 @@ $("#container").click(function(e){
 //gives back the data i need for the first
 function pieData(clickedState){
   var arr = []
+  var arr2=[]
   d3.json('v1/table_1.2', function(data){
     var stateData = data.filter(val =>{
           return val['US_State'] === clickedState;
     })[0]
- 
-    //data for chart
-    arr.push(parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,'')) )    
-    console.log(arr)
+    // arr2.push({legend:"Birth 15-19" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions 15-19" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses 15-19" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
+    // console.log(arr2)
+
+    //current data for chart
+    arr.push( parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,'')) )    
+
     //run the chart function which appends a graph...
-    chart(arr);
+    pieChart(arr);
 
   })
-
-
 }
 
+var group = null;
 //appends pie chat
-function chart(arr){
- 
+function pieChart(arr){
   var data = arr;
   var r =50;
   var color = d3.scale.category10()
 
-
   //canvas
   var canvas = d3.select('#pieChart')
-
-  //store visualization
-  if(!group){
-  var group = canvas.append('svg')
-    .attr('width', 100)
-    .attr('height', 100).append('g')
-    .attr('transform', 'translate(50,50)')
-  }
   //arc path generator
   var arc = d3.svg.arc()
     .innerRadius(0)
     .outerRadius(r);
-
   //layouts are built into d3, takes our data
   var pie = d3.layout.pie()
     .value(function(d){return d;})
 
-  //update...
+  //create svg is none is there
+  if(!group){
+  group = canvas.append('svg')
+    .attr('width', 100)
+    .attr('height', 100).append('g')
+    .attr('transform', 'translate(50,50)')
+
   var arcs = group.selectAll(".arc")
     .data(pie(data))
     .enter()
@@ -85,16 +82,25 @@ function chart(arr){
     .attr('text-anchor', 'middle')
     .attr('font-size', '.8em')
     .text(function(d){ return d.data})
-    
- 
 
+
+  } else {
+  //update the path and text
+  group.selectAll('.arc path')
+    .data(pie(data)).attr('d', arc)
+    .attr('fill', function(d){
+      return color(d.data);
+    })
+
+  group.selectAll('.arc text')
+    .data(pie(data))
+    .attr('transform', function(d){return "translate (" + arc.centroid(d) + ")";})
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '.8em')
+    .text(function(d){ return d.data})
+
+  }
 
 }
-
-
-
-
-
-
 
 });

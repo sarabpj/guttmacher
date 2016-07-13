@@ -92,6 +92,18 @@ router.get('/v1/table_1.5', function(req, res, next){
   })
 })
 
+//second chart
+router.get('/v1/chart2', function(req, res, next){
+  knex('data_csv').select('US_State','PR_1988', 'PR_1992', 'PR_1996', 'PR_2000', 'PR_2005', 'PR_2008', 'PR_2010', 'PR_2011', 'BR_1988', 'BR_1992', 'BR_1996', 'BR_2000', 'BR_2005', 'BR_2008', 'BR_2010', 'BR_2011','AR_1988', 'AR_1992', 'AR_1996', 'AR_2000', 'AR_2005', 'AR_2008', 'AR_2010', 'AR_2011').then(
+    function (data) {
+    res.format({
+      json: function(){
+        res.send(data)
+      }
+    })
+  })
+})
+
 //table 1.6
 router.get('/v1/table_1.6', function(req, res, next){
   knex('data_csv').select('Postal_Code', 'ARO_1988', 'ARO_1992', 'ARO_1996', 'ARO_2000', 'ARO_2005', 'ARO_2008', 'ARO_2010', 'ARO_2011').then(
