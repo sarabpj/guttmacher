@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 $("#container").click(function(e){
     var temp = e.currentTarget.attributes[1].ownerElement.innerText
+    if(!temp === ""){return clickedState}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
     $('#statename').text(temp)

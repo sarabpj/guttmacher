@@ -106,7 +106,7 @@ router.get('/v1/chart2', function(req, res, next){
 
 //table 1.6
 router.get('/v1/table_1.6', function(req, res, next){
-  knex('data_csv').select('Postal_Code', 'ARO_1988', 'ARO_1992', 'ARO_1996', 'ARO_2000', 'ARO_2005', 'ARO_2008', 'ARO_2010', 'ARO_2011').then(
+  knex('data_csv').select('US_State','Postal_Code', 'ARO_1988', 'ARO_1992', 'ARO_1996', 'ARO_2000', 'ARO_2005', 'ARO_2008', 'ARO_2010', 'ARO_2011').then(
     function (data) {
     res.format({
       json: function(){
@@ -118,7 +118,7 @@ router.get('/v1/table_1.6', function(req, res, next){
 
 //table 1.7
 router.get('/v1/table_1.7', function(req, res, next){
-  knex('data_csv').select('Postal_Code', 'PR_H', 'PR_NHB', 'PR_NHW', 'PR_NHO', 'BR_H', 'BR_NHB', 'BR_NHW', 'BR_NHO', 'AR_H', 'AR_NHB', 'AR_NHW', 'AR_NHO').then(
+  knex('data_csv').select('US_State','Postal_Code', 'PR_H', 'PR_NHB', 'PR_NHW', 'PR_NHO', 'BR_H', 'BR_NHB', 'BR_NHW', 'BR_NHO', 'AR_H', 'AR_NHB', 'AR_NHW', 'AR_NHO').then(
     function (data) {
     res.format({
       json: function(){
@@ -130,7 +130,7 @@ router.get('/v1/table_1.7', function(req, res, next){
 
 //table 1.8
 router.get('/v1/table_1.8', function(req, res, next){
-  knex('data_csv').select('Postal_Code', 'NoA_H', 'NoA_NHB', 'NoA_NHW', 'NoA_NHO', 'NoB_H', 'NoB_NHB', 'NoB_NHW', 'NoB_NHO', 'NoF_H', 'NoF_NHB', 'NoF_NHW', 'NoF_NHO' ).then(
+  knex('data_csv').select('US_State','Postal_Code', 'NoA_H', 'NoA_NHB', 'NoA_NHW', 'NoA_NHO', 'NoB_H', 'NoB_NHB', 'NoB_NHW', 'NoB_NHO', 'NoF_H', 'NoF_NHB', 'NoF_NHW', 'NoF_NHO', 'NoP_H', 'NoP_NHB', 'NoP_NHW', 'NoP_NHO' ).then(
     function (data) {
     res.format({
       json: function(){

@@ -13,6 +13,7 @@ $(document).ready(function(){
 
 $("#container").click(function(e){
     var temp = e.currentTarget.attributes[1].ownerElement.innerText
+    if(!temp === " "){return clickedState}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
     $('#statename').text(clickedState)
@@ -31,7 +32,6 @@ function pieData(clickedState){
     })[0]
     // arr2.push({legend:"Birth 15-19" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions 15-19" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses 15-19" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
     // console.log(arr2)
-
     //current data for chart
     arr.push( parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,'')) )    
 
