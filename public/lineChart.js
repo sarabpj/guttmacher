@@ -4,7 +4,7 @@ $("#container").click(function(e){
     var temp = e.currentTarget.attributes[1].ownerElement.innerText
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
-    $('#statename').text(clickedState)
+    $('#statename').text(temp)
     lineData(clickedState)
     
 });
@@ -35,12 +35,12 @@ function lineData(clickedState){
 
         svg = d3.select("#lineChart").append("svg")
             .datum(arr)
-            .call(d3_xy_chart()) ;
+            .call(lineChart()) ;
     })
 }
 
 
-function d3_xy_chart() {
+function lineChart() {
     var width = 360,  
         height = 200
 
@@ -62,7 +62,7 @@ function d3_xy_chart() {
             //create y scale
             var y_scale = d3.scale.linear()
                 .range([innerheight, 0])
-                .domain([ 10, 175 ]) ;
+                .domain([ 0, 175 ]) ;
             //
             var color_scale = d3.scale.category10()
                 .domain(d3.range(datasets.length)) ;
@@ -93,9 +93,6 @@ function d3_xy_chart() {
                 .y(function(d) { return y_scale(d[1]); }) ;
 
 
-
-
-
             var svg = d3.select(this)
                 .attr("width", width)
                 .attr("height", height)
@@ -119,27 +116,30 @@ function d3_xy_chart() {
                 .call(x_axis)
                 .attr("x", innerwidth)
                 .selectAll("text")  
-                    .style("text-anchor", "end")
+                    .attr("text-anchor", "end")
                     .attr("dx", "-.8em")
                     .attr("dy", ".15em")
                     .attr("transform", function(d) {
                         return "rotate(-65)" 
                     })
         
-        //xlabel not appending
+          //xlabel 
             svg.append("text")
-                .attr("transform","translate(" + (width/2) + " ," + (height+margin.bottom) + ")")
-                .style("text-anchor", "middle")
+                .attr('class', 'xlabel')
+                .attr('x', 90)
+                .attr('y', 150)
+                .attr("text-anchor", "end")
                 .text('Year');
             //ylabel
             svg.append("text")
+                .attr('class', 'ylabel')
                 .attr("transform", "rotate(-90)")
-                .attr("y", 6)
-                .attr("x", margin.top - (height / 2))
+                .attr("y", -35)
+                .attr("x", 0)
                 .attr("dy", ".71em")
-                .style("text-anchor", "end")
-                .text("# of Pregnancies, Births, Abortions per 1,000 women aged 15-19");
-                    
+                .attr("text-anchor", "end")
+                .text("# per 1,000 women aged 15-19");
+                
             //append y axis
             svg.append("g")
                 .attr("class", "y axis")
@@ -148,7 +148,7 @@ function d3_xy_chart() {
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", "0.11em")
-                .style("text-anchor", "end");
+                .attr("text-anchor", "end");
 
 
             var data_lines = svg.selectAll(".data_line")

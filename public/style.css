@@ -1,0 +1,48 @@
+#statename{
+  font-size: 37px;
+}
+
+#pieChart{
+  position: relative; 
+  left: 350px;
+  bottom: 190px;
+
+}
+
+.tick{
+  font-size: 10px;
+}
+
+.data_line text{
+  font-size: 12px;
+}
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.ylabel, .xlabel {
+  font-size: 10px;
+}
+
+
+.grid path,
+.grid line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.25);
+  shape-rendering: crispEdges;
+}
+
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2.5px;
+}

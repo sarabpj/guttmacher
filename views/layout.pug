@@ -3,18 +3,20 @@ html(lang='en')
   head
     meta(charset='UTF-8')
     title Document
-    script(type='text/javascript' src="http://d3js.org/d3.v3.js" charset="utf-8")
-    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js')
-    script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
-    script(type='text/javascript' src='../d3/map.js')
-    script(type='text/javascript' src="../piechart.js")
-    script(type='text/javascript' src="../lineChart.js")  
+    link(rel="stylesheet" href='../style.css')  
   body
     div
       div#container(style='position: relative; width: 800px; height: 500px;')
 
     p#statename(style='width: 50px; height: 50px;')
-    div#lineChart
-    div#pieChart
+    figure#lineChart(style='width: 400px; height: 200px;')
+    figure#pieChart
 
-    //- script(type='text/javascript' src='../piechart.js')
+
+
+    script(type='text/javascript' src="http://d3js.org/d3.v3.js" charset="utf-8")
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js')
+    script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(type='text/javascript' src='../d3/map.js')
+    script(type='text/javascript' src="../piechart.js")
+    script(type='text/javascript' src="../lineChart.js")

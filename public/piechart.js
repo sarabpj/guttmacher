@@ -29,7 +29,7 @@ function pieData(clickedState){
     var stateData = data.filter(val =>{
           return val['US_State'] === clickedState;
     })[0]
-    // arr2.push({legend:"Births 15-19" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions 15-19" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses 15-19" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
+    // arr2.push({legend:"Birth 15-19" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions 15-19" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses 15-19" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
     // console.log(arr2)
 
     //current data for chart
@@ -45,7 +45,7 @@ var group = null;
 //appends pie chat
 function pieChart(arr){
   var data = arr;
-  var r =50;
+  var r =80;
   var color = d3.scale.category10()
 
   //canvas
@@ -61,9 +61,9 @@ function pieChart(arr){
   //create svg is none is there
   if(!group){
   group = canvas.append('svg')
-    .attr('width', 100)
-    .attr('height', 100).append('g')
-    .attr('transform', 'translate(50,50)')
+    .attr('width', 160)
+    .attr('height', 160).append('g')
+    .attr('transform', 'translate(80,80)')
 
   var arcs = group.selectAll(".arc")
     .data(pie(data))
