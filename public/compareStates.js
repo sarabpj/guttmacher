@@ -4,10 +4,8 @@ $(document).ready(function(){
           scope:'usa',
            fills: {
           defaultFill: '#D9DBE5'
-        }
-
-      });
-
+        }});
+// debugger
 
 $(".column").click(function(e){
 
@@ -17,42 +15,50 @@ $(".column").click(function(e){
 
 });
 
-
-
       // function change() {
       //   var value = this.value;
       //   debugger
       // }
 
-
+//takes in the value of current radio, makes a request to my database
 function column(columnName){
-    // var prop = columnName
+  
 
-    d3.json("v1", function(error, data) {
-     
+    d3.json("v2", function(error, data) { 
+
+    //return the state and value in an object
     var columnData = data.map( function (val, i){
-        // debugger
         var obj ={}
         if(val.hasOwnProperty(columnName)){
-               // console.log("obj."+columnName + "=" +val[columnName] + " , " + val["US_State"] );
-            obj[val['Postal_Code']] = parseInt(val[columnName].replace(/,|_|\[.*\]/g,''))
+         obj['PC'] = val['Postal_Code']
+         obj['val'] = parseInt(val[columnName].replace(/,|_|\[.*\]/g,''))
             return obj
-
-
         }
-        
-        // debugger
-        
-    })
-    // debugger
-    console.log(columnData)
 
-      // d3.selectAll("input")
-      //     .on("change", change);
+    })
+    // console.log('column data', columnData)
+    //color scale storting from min value to max value of column
+    //if NAN it does not apply color
+    var color = d3.scale.linear()
+                  .domain([d3.min(columnData, function(d){return d.val}), d3.max(columnData, function(d){return d.val})])
+                  .range(['#D9DBE5', '#03A0D2']);
+
+
+    //this selects all of the states and overwrites the style
+    d3.selectAll('.datamaps-subunit')
+        //figure out how to map the 
+        .data(columnData)
+        .attr('style', function(d){
+          return 'fill:' + color(d.val);
+
+        })
+        // .attr('style', 'fill: #CCCCCC');
+          // debugger
 
     });
 }
 
+// debugger
 
 
 

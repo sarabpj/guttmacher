@@ -26,6 +26,16 @@ router.get('/v1', function(req, res, next) {
   })
 })
 
+//complete infomation for the States
+router.get('/v2', function(req, res, next) {
+  knex('data_csv').where('ID', '<', 52).then(function (data) {
+    res.format({
+      json: function(){
+        res.send(data)
+      }
+    })
+  })
+})
 
 
 //table 1.1
