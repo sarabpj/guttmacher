@@ -3,10 +3,17 @@ const router = express.Router()
 const knex = require('../db/knex')
 const locus = require('locus')
 
-
+//current graphs for state
 router.get('/home', function(req,res,next){
   res.render('layout')
 })
+
+
+//compare states
+router.get('/compare', function(req,res,next){
+  res.render('compare')
+})
+
 
 //complete data file
 router.get('/v1', function(req, res, next) {
@@ -165,16 +172,6 @@ router.get('/v1/notes', function(req, res, next){
 })
 
 
-//get info of state
-router.get('/v1/<state>', function(req, res, next){
-  knex('data_csv').select('ID').then(
-    function (data) {
-    res.format({
-      json: function(){
-        res.send(data)
-      }
-    })
-  })
-})
+
 
 module.exports= router;
