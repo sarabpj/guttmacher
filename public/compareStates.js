@@ -46,19 +46,20 @@ function column(columnName){
 
     //this selects all of the states and overwrites the style
     d3.selectAll('.datamaps-subunit')
-        //figure out how to map the 
+
+        //figure out do a key match...
         .data(columnData)
         .attr('style', function(d){
           return 'fill:' + color(d.val);
 
         })
-        // .attr('style', 'fill: #CCCCCC');
-          // debugger
+
+    debugger
 
     });
 }
 
-// debugger
+debugger
 
 
 
