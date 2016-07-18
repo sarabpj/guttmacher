@@ -44,8 +44,8 @@ function column(columnName){
     }
 
     //this selects all of the states and overwrites the style
-    //CURRENTLY THIS IS SELECTING FROM MAPONE EVEN THOUGH IT IS NOT CONNECTED
-    d3.selectAll('.datamaps-subunit')
+    //selectling all from the first instance of the map (#mapOne) though the variable is difference in reference to the map
+    d3.selectAll("#mapTwo").selectAll('.datamaps-subunit')
         //use a keyfunction to match the map to the data
         //FTFW
         .data(columnData, findId)

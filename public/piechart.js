@@ -10,7 +10,6 @@ $(document).ready(function(){
 
   });
 
-console.log("HIIIIII")
 
 $("#mapOne").click(function(e){
     var temp = e.currentTarget.attributes[1].ownerElement.innerText
