@@ -1,10 +1,11 @@
 $(document).ready(function(){ 
-     var map = new Datamap({
-          element: document.getElementById('container'), 
+     var map2 = new Datamap({
+          element: document.getElementById('mapTwo'), 
           scope:'usa',
            fills: {
-          defaultFill: '#D9DBE5'
-        }});
+          defaultFill: '#23AEE5'
+        }
+    });
 // debugger
 
 $(".column").click(function(e){
@@ -12,7 +13,7 @@ $(".column").click(function(e){
     var columnName = ($(this).val())
 
     column(columnName)
-
+   console.log("columnName")
 });
 
 
@@ -43,6 +44,7 @@ function column(columnName){
     }
 
     //this selects all of the states and overwrites the style
+    //CURRENTLY THIS IS SELECTING FROM MAPONE EVEN THOUGH IT IS NOT CONNECTED
     d3.selectAll('.datamaps-subunit')
         //use a keyfunction to match the map to the data
         //FTFW

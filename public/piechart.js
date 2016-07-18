@@ -2,7 +2,7 @@
 $(document).ready(function(){ 
 
  var map = new Datamap({
-      element: document.getElementById('container'), 
+      element: document.getElementById('mapOne'), 
       scope:'usa',
        fills: {
       defaultFill: '#D9DBE5'
@@ -10,8 +10,9 @@ $(document).ready(function(){
 
   });
 
+console.log("HIIIIII")
 
-$("#container").click(function(e){
+$("#mapOne").click(function(e){
     var temp = e.currentTarget.attributes[1].ownerElement.innerText
     if(!temp === " "){return clickedState}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")

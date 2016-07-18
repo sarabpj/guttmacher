@@ -1,14 +1,33 @@
+#about{
+  height:600px;
+  background-color: grey;
+  
+}
+
+.story{
+  margin-top: 50px;
+}
+
+#stateInformation{
+  height:800px;
+  
+}
+
+#compareStates{
+  height:800px;
+  
+}
+
 #statename{
   font-size: 37px;
 }
 
-#pieChart{
+/*#pieChart{
   position: relative; 
   left: 350px;
   bottom: 190px;
-
-
 }
+
 
 #pieChart:hover{
     z-index: 2;
@@ -34,7 +53,7 @@
     transform: scale(1.5);
 }
 
-
+*/
 
 .tick{
   font-size: 10px;
@@ -42,6 +61,16 @@
 
 .data_line text{
   font-size: 12px;
+}
+
+
+#mapOne{
+  height: 500px
+  width: 600px;
+}
+#mapTwo{
+  height: 500px
+  width: 600px;
 }
 
 

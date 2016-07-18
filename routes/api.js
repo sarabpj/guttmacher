@@ -3,6 +3,11 @@ const router = express.Router()
 const knex = require('../db/knex')
 const locus = require('locus')
 
+//wooooooo! getting ready
+router.get('/ustpt', function(req,res,next){
+  res.render('home')
+})
+
 //current graphs for state
 router.get('/home', function(req,res,next){
   res.render('layout')
