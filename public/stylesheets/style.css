@@ -10,7 +10,7 @@
 
 
 #stateInformation{
-  height:760px;
+  /*height:760px;*/
   width: 100%;
   background-color: #C3BA98;
   /*padding-bottom: 40px:;*/
@@ -60,6 +60,11 @@
 }
 
 
+/*axix is for bother line and bar charts*/
+.axis {
+    font: 10px sans-serif;
+  }
+
 .axis path,
 .axis line {
   fill: none;
@@ -97,33 +102,26 @@
 
 /**{border:1px red solid;}*/
 
-#barChart div{
-    font-size: 0.7em;
-    font-family: sans-serif;
-    color: black;
-    background-color: #9D7274;
+#barChart div {
+    font-size: 0.8em;
+    
+    color: #E2E3E4;
     text-align: right;
     padding: 0.5em;
     margin: 0.2em;
 
 }
 
-.pieValue{
+.pieValue, .legend{
   /*font-size: .9em;*/
-  color: #E2E3E4;
-  background-color: #E2E3E4;
+  stroke: #E2E3E4;
+  fill: #E2E3E4;
+
+}
+
+.legend {
+  display: block;
+  color: #E2E3E4
 }
 
 
-div.tooltip {   
-  position: absolute;           
-  text-align: center;           
-  width: 60px;                  
-  height: 28px;                 
-  padding: 2px;             
-  font: 12px sans-serif;        
-  background: lightsteelblue;   
-  border: 0px;      
-  border-radius: 8px;           
-  pointer-events: none;         
-}

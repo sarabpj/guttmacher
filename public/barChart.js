@@ -26,41 +26,63 @@ function barChart(clickedState) {
 
 };
 
+var legend = null;
 function update(data) {
     var scale = d3.scale.linear()
         .range([0, 400])
         .domain([0, d3.max(data)]);
-
+    console.log('data', data)
     var bars = d3.select("#barChart")
         .selectAll("div")
         .data(data)
         .attr("class","barChart");
      
+    var color = d3.scale.ordinal()
+    .domain(["Hispanic", "Nonhispanic Black", "Nonhispanic White", "Nonhispanic Other"])
+    .range(["#BC6542", "#C18E3D", "#E3BF6B", "#587E84"]);
+
+
+    var legendRectSize =15;
+ 
     // enter divs
     bars.enter().append("div");
 
     // update divs
     bars.style("width", function (d) {return scale(d)/2 +  "px";})
-        .text(function (d) {return d;});
+        .text(function (d) {return d;}).style('background-color', function(d){ return color(d)});
 
+    if(!legend){
 
-    //Create the Scale we will use for the Axis
-     var axisScale = d3.scale.linear()
-                             .domain([0, d3.max(data)])
-                             .range([0, 400]);
-    //Create the Axis
-    // var xAxis = d3.svg.axis().scale(axisScale);
-    // var xAxisGroup = d3.select("#barChart").append("g")
-    //                           .call(xAxis);
+     legend = d3.select('#barChart')
+        .append("g")
+        .attr('class', 'hello')
+        .selectAll("g")
+        .data(color.domain().slice(0,4))
+        .enter()
+        .append('g')
+          .attr('class', 'legend')
+          .attr('transform', function(d, i) {
+            var height = legendRectSize;
+            var x = 0;
+            var y = i * height ;
+            return 'translate(' + x + ',' + y + ')';
+        });
 
+      // console.log('COLor DOMAIN', color.domain())
+      legend.append('div')
+        .attr('width', 10)
+        .attr('height', 10)
+        .style('background-color', function(d){ return color(d)})
+        .style('display', 'inline-block');
 
+      legend.append('text')
+        .attr('x', legendRectSize + 5)
+        .attr('y', legendRectSize )
+        .text(function(d,i) { 
+          console.log(d, i)
+          return d; });
 
-
-
-
-
-
-
+    }
 };
 
 

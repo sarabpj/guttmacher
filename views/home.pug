@@ -30,8 +30,11 @@ html(lang="en")
     
     section#about
       div.container
-        div.col-sm-8.col-sm-offset-2.text-center.story
-          h1.section-heading United States Teen Pregnancy Trends, 2011: State Trends by Age, Race and Ethnicity
+        div.col-sm-10.col-sm-offset-1.text-center.story
+          h1.section-heading 
+            | United States Teen Pregnancy Trends, 2011: 
+            br
+            | State Trends by Age, Race and Ethnicity
           hr.light
           p Teen pregnancy, birth and abortion rates in the United States all reached new historic lows in 2011, according to two new analyses (national and state) from the Guttmacher Institute. In 2011, about 553,000 pregnancies occurred among teen women aged 15–19, for a national rate of 52.4 pregnancies per 1,000 women in that age-group. This is the lowest rate observed in the last four decades, and it marks a 23% decline from the 2008 teen pregnancy rate of 68.2. National teen birth and abortion rates have also declined sharply: in 2011, there were 31.3 births per 1,000 teen women (down from 40.2 in 2008) and 13.5 abortions per 1,000 teen women (down from 18.1 in 2008).
           p Although rates of teen pregnancy and its outcomes have declined among all racial and ethnic groups, wide disparities persist. In 2011, pregnancy rates among non-Hispanic black teens (92.6 per 1,000) and Hispanic teens (73.5 per 1,000) were more than double the pregnancy rate for non-Hispanic white teens (35.3 per 1,000). 
@@ -40,14 +43,17 @@ html(lang="en")
       div.container-fluid
         p.section-heading.text-center#statename Click on a state
         div.row
-          div.col-sm-6
+          div.col-sm-1
+          div.col-sm-3.img-responsive#pieChart
+            //- div.col-sm-6
+          div.col-sm-4.img-responsive#lineChart
+            //- div.col-sm-4
+          div.col-sm-1
+          div.col-sm-3.img-responsive#barChart
+              //- div.col-sm-6
+        div.row
+          div.col-sm-6.col-sm-offset-3
             div.img-responsive#mapOne
-          div.col-sm-6
-            div.row
-              div.col-sm-6.img-responsive#pieChart
-              div.col-sm-6.img-responsive#barChart
-            div.row
-              div.col-sm-12.img-responsive#lineChart
 
     section#compareStates
       div.container-fluid
