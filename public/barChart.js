@@ -1,7 +1,7 @@
 $(document).ready(function(){ 
 
 $("#mapOne").click(function(e){
-    var temp = e.currentTarget.attributes[1].ownerElement.innerText
+    var temp = (e.currentTarget.attributes[1].ownerElement.innerText || "Click on a state")
     if(!temp === ""){return clickedState}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
@@ -28,8 +28,8 @@ function barChart(clickedState) {
 
 function update(data) {
     var scale = d3.scale.linear()
-        .domain([0, d3.max(data)])
-        .range([0, 400]);
+        .range([0, 400])
+        .domain([0, d3.max(data)]);
 
     var bars = d3.select("#barChart")
         .selectAll("div")
@@ -37,10 +37,12 @@ function update(data) {
         .attr("class","barChart");
      
     // enter divs
-    bars.enter().append("div");
+    bars.enter().append("div").transition()
+    .delay(100)
+    .duration(4000)  ;
 
     // update divs
-    bars.style("width", function (d) {return scale(d) + "px";})
+    bars.style("width", function (d) {return scale(d)/2 +  "px";})
         .text(function (d) {return d;});
 
 };

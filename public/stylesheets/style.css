@@ -1,6 +1,6 @@
 #about{
   height:600px;
-  background-color: grey;
+  background-color: #E2E3E4;
   
 }
 
@@ -8,20 +8,46 @@
   margin-top: 50px;
 }
 
+
 #stateInformation{
-  height:800px;
-  
+  height:700px;
+  background-color: #C3BA98;
+  width: 100%;
 }
 
+.row{
+  margin-top:5%;
+}
 #compareStates{
-  height:800px;
-  
+  height:700px;
+  background-color: #E2E3E4;
+  width: 100%;
+}
+
+/*#mapOne > .datamap{
+ margin-left: -10%;
+ width: 100%;
+
+}*/
+
+#mapOne {
+  /*position: relative;*/
+  /*width: 100%*/
+}
+
+#mapTwo{
+ /*margin-left: -45px;*/
+ width: 100%
 }
 
 #statename{
+  margin-top: 20px;
   font-size: 37px;
 }
 
+#mapTwo{
+  margin-top: 15px
+}
 /*#pieChart{
   position: relative; 
   left: 350px;
@@ -64,16 +90,6 @@
 }
 
 
-#mapOne{
-  height: 500px
-  width: 600px;
-}
-#mapTwo{
-  height: 500px
-  width: 600px;
-}
-
-
 .axis path,
 .axis line {
   fill: none;
@@ -104,13 +120,15 @@
 }
 
 
+/**{border:1px red solid;}*/
 
 #barChart div{
-    font-size: 0.5em;
+    font-size: 0.7em;
     font-family: sans-serif;
-    color: white;
-    background-color: steelblue;
+    color: black;
+    background-color: #9D7274;
     text-align: right;
     padding: 0.5em;
     margin: 0.2em;
+
 }
