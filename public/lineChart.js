@@ -42,15 +42,15 @@ function lineData(clickedState){
 
 
 function lineChart() {
-    var width = 360,  
-        height = 200
+    var width = 510,  
+        height = 250
 
     //selection is the complete array
     function chart(selection) {
         //datasets is the individual array
         selection.each(function(datasets) {
             //create plot
-            var margin = {top: 30, right: 110, bottom: 50, left: 70}, 
+            var margin = {top: 30, right: 80, bottom: 50, left: 70}, 
                 innerwidth = width - margin.left - margin.right,
                 innerheight = height - margin.top - margin.bottom ;
             
@@ -59,7 +59,7 @@ function lineChart() {
             //defines the available area to render graph
                 .range([0, innerwidth])
             //defines the max and min values that we have to plot
-                .domain([ 1988, 2012 ]) ;
+                .domain(["1988", "2012" ]) ;
             //create y scale
             var y_scale = d3.scale.linear()
                 .range([innerheight, 0])
@@ -74,7 +74,8 @@ function lineChart() {
 
             var x_axis = d3.svg.axis()
                 .scale(x_scale)
-                .orient("bottom") ;
+                .orient("bottom")
+                .tickFormat(d3.format("d")) ;
 
             var y_axis = d3.svg.axis()
                 .scale(y_scale)
@@ -114,33 +115,20 @@ function lineChart() {
                 .attr("class", "y grid")
                 .call(y_grid) ;
 
-            //append x axis
-            svg.append("g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + innerheight + ")") 
-                .call(x_axis)
-                .attr("x", innerwidth)
-                .selectAll("text")  
-                    .attr("text-anchor", "end")
-                    .attr("dx", "-.8em")
-                    .attr("dy", ".15em")
-                    .attr("transform", function(d) {
-                        return "rotate(-65)" 
-                    })
-        
           //xlabel 
             svg.append("text")
                 .attr('class', 'xlabel')
-                .attr('x', 90)
-                .attr('y', 150)
+                .attr('x', 180)
+                .attr('y', 215)
                 .attr("text-anchor", "end")
                 .text('Year');
+                
             //ylabel
             svg.append("text")
                 .attr('class', 'ylabel')
                 .attr("transform", "rotate(-90)")
-                .attr("y", -35)
                 .attr("x", 0)
+                .attr("y", -45)
                 .attr("dy", ".71em")
                 .attr("text-anchor", "end")
                 .text("# per 1,000 women aged 15-19");
@@ -155,6 +143,20 @@ function lineChart() {
                 .attr("dy", "0.11em")
                 .attr("text-anchor", "end");
 
+            //append x axis
+            svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0,170)") 
+                .call(x_axis)
+                .attr("x", innerwidth)
+                .selectAll("text")  
+                    .attr("text-anchor", "end")
+                    .attr("dx", "-1.8em")
+                    .attr("dy", ".25em")
+                    .attr("transform", function(d) {
+                        return "rotate(-55)" 
+                    })
+        
 
             var data_lines = svg.selectAll(".data_line")
                 .data(datasets.map(function(d) {return d3.zip(d.x, d.y);}))

@@ -1,7 +1,7 @@
 #about{
   height:600px;
   background-color: #E2E3E4;
-  
+  width: 100%;
 }
 
 .story{
@@ -10,18 +10,18 @@
 
 
 #stateInformation{
-  height:700px;
-  background-color: #C3BA98;
+  height:100%;
   width: 100%;
+  background-color: #C3BA98;
 }
 
 .row{
-  margin-top:5%;
+  margin-top:3%;
 }
 #compareStates{
   height:700px;
-  background-color: #E2E3E4;
   width: 100%;
+  background-color: #E2E3E4;
 }
 
 /*#mapOne > .datamap{
@@ -32,7 +32,7 @@
 
 #mapOne {
   /*position: relative;*/
-  /*width: 100%*/
+  width: 100%
 }
 
 #mapTwo{
@@ -48,38 +48,7 @@
 #mapTwo{
   margin-top: 15px
 }
-/*#pieChart{
-  position: relative; 
-  left: 350px;
-  bottom: 190px;
-}
 
-
-#pieChart:hover{
-    z-index: 2;
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1.5);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);   
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(1.5);
-}
-
-#lineChart:hover{
-    z-index: 2;
-    -webkit-transition: all 200ms ease-in;
-    -webkit-transform: scale(1.5);
-    -ms-transition: all 200ms ease-in;
-    -ms-transform: scale(1.5);   
-    -moz-transition: all 200ms ease-in;
-    -moz-transform: scale(1.5);
-    transition: all 200ms ease-in;
-    transform: scale(1.5);
-}
-
-*/
 
 .tick{
   font-size: 10px;
@@ -97,8 +66,12 @@
   shape-rendering: crispEdges;
 }
 
-.ylabel, .xlabel {
-  font-size: 10px;
+.ylabel{
+  font-size: .85em;
+} 
+
+.xlabel {
+  font-size: 1em;
 }
 
 
