@@ -35,7 +35,7 @@ function pieData(clickedState){
     var stateData = data.filter(val =>{
           return val['US_State'] === clickedState;
     })[0]
-    arr.push({legend:"Birth 15-19" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions 15-19" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses 15-19" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
+    arr.push({legend:"Births" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
     // console.log(arr2)
     //current data for chart
     // arr.push( parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,'')) )    
@@ -51,10 +51,13 @@ var group = null;
 function pieChart(arr){
   var data = arr;
   var r =80;
-  var color = d3.scale.ordinal().domain(["Births", "Abortions", "Fetal Losses"])
+  var color = d3.scale.ordinal()
+  // .domain(["Births", "Abortions", "Fetal Losses"])
   .range(["#BC6542", "#C18E3D", "#E3BF6B"]);
 
   var dataValue = arr.map(function(v,i){return v.value})
+  var dataLegend = arr.map(function(v,i){return v.legend})
+  // console.log(dataLegend)
   //canvas
   var canvas = d3.select('#pieChart')
   //arc path generator
@@ -65,18 +68,19 @@ function pieChart(arr){
   //layouts are built into d3, takes our data
   var pie = d3.layout.pie()
 
+  var legendRectSize =15;
 
   //create svg is none is there
   if(!group){
   group = canvas.append('svg')
-    .attr('width', 160)
+    .attr('width', 265)
     .attr('height', 160).append('g')
     .attr('transform', 'translate(80,80)')
 
   
-  function findVal(d){
-       return d.value
-    }
+  // function findVal(d){
+  //      return d.value
+  //   }
 
   var arcs = group.selectAll(".arc")
     .data(pie(dataValue))
@@ -86,6 +90,7 @@ function pieChart(arr){
 
   arcs.append('path')
     .attr('d', arc)
+    .attr('class', 'path')
     .attr('fill', function(d){
       return color(d.value);
     })
@@ -94,7 +99,37 @@ function pieChart(arr){
     .attr('transform', function(d){return "translate (" + arc.centroid(d) + ")";})
     .attr('text-anchor', 'middle')
     .attr('font-size', '.8em')
-    .text(function(d){ return d.value})
+    .text(function(d){ 
+      return d.value})
+    .attr('class', 'pieValue')
+
+  var legend = d3.select('#pieChart svg')
+      .append("g")
+      .selectAll("g")
+      .data(dataLegend)
+      .enter()
+      .append('g')
+        .attr('class', 'legend')
+        .attr('transform', function(d, i) {
+          var height = legendRectSize;
+          var x = 165;
+          var y = i * height ;
+          return 'translate(' + x + ',' + y + ')';
+      });
+
+
+    legend.append('rect')
+      .attr('width', legendRectSize)
+      .attr('height', legendRectSize)
+      .style('fill', color)
+      .style('stroke', color);
+
+    legend.append('text')
+      .attr('x', legendRectSize + 5)
+      .attr('y', legendRectSize )
+      .text(function(d,i) { 
+        console.log(d, i)
+        return d; });
 
 
   } else {
@@ -114,6 +149,10 @@ function pieChart(arr){
     .text(function(d){ return d.value});
 
   }
+
+ // group.selectAll('.arc path').on('mouseover', function(d){
+ //    console.log(d)
+ //   })
 
 }
 

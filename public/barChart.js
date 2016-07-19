@@ -37,13 +37,29 @@ function update(data) {
         .attr("class","barChart");
      
     // enter divs
-    bars.enter().append("div").transition()
-    .delay(100)
-    .duration(4000)  ;
+    bars.enter().append("div");
 
     // update divs
     bars.style("width", function (d) {return scale(d)/2 +  "px";})
         .text(function (d) {return d;});
+
+
+    //Create the Scale we will use for the Axis
+     var axisScale = d3.scale.linear()
+                             .domain([0, d3.max(data)])
+                             .range([0, 400]);
+    //Create the Axis
+    // var xAxis = d3.svg.axis().scale(axisScale);
+    // var xAxisGroup = d3.select("#barChart").append("g")
+    //                           .call(xAxis);
+
+
+
+
+
+
+
+
 
 };
 

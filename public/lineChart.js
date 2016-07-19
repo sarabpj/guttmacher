@@ -67,7 +67,7 @@ function lineChart() {
             //
             var color_scale = d3.scale
                 .ordinal()
-                .range(["#BC6542", "#C18E3D", "#E3BF6B"])
+                .range(["#BC6542", "#C18E3D", "#587E84"])
                  .domain(d3.range(datasets.length));
                 // .scale.category10()
                 // .domain(d3.range(datasets.length)) ;
