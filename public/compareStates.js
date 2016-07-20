@@ -3,6 +3,7 @@ $(document).ready(function(){
           element: document.getElementById('mapTwo'), 
           scope:'usa',
           width: 700,
+          height:480,
           responsive: true,
            fills: {
           defaultFill: '#9D7274'
@@ -23,6 +24,9 @@ $(".column").click(function(e){
 
 d3.select(window).on('resize', function() {
     map2.resize();
+//legendLinear.resizes() does not work
+
+    // console.log("WOAH!")
 });
 
     var legendRectSize = 20;
@@ -46,6 +50,8 @@ function column(columnName){
                     .domain([d3.min(columnData, function(d){return d.val}), d3.max(columnData, function(d){return d.val})])
                     .range(['#94B8A6', '#C18E3D']);
 
+
+
       function findId(d){
          return d.id
       }
@@ -61,12 +67,15 @@ function column(columnName){
           })     
 
       var svg = d3.select('#mapTwo svg');
-      svg.append('g').attr('class', 'legendLinear').attr('transform', 'translate(350,353)')
+      svg.append('g').attr('class', 'legendLinear').attr('transform', 'translate(160,0)')
 
       var legendLinear = d3.legend.color().shapeWidth(50).orient('horizontal').scale(colors);
       svg.select('.legendLinear').call(legendLinear)
 
       // debugger
+
+
+
 
     });
 

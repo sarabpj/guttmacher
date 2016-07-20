@@ -69,8 +69,6 @@ function lineChart() {
                 .ordinal()
                 .range(["#BC6542", "#C18E3D", "#587E84"])
                  .domain(d3.range(datasets.length));
-                // .scale.category10()
-                // .domain(d3.range(datasets.length)) ;
 
             var x_axis = d3.svg.axis()
                 .scale(x_scale)

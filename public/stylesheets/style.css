@@ -8,12 +8,31 @@
   margin-top: 50px;
 }
 
+/*US Maps*/
+#mapOne {
+  width: 100%
+  margin-top: -15px;
+}
 
+#mapTwo{
+ width: 100%
+ margin-top: 15px
+}
+
+/*Invidual State Infor */
 #stateInformation{
   /*height:760px;*/
   width: 100%;
   background-color: #C3BA98;
   padding-bottom: 40px
+}
+
+
+/*compare by  table column by value*/
+#compareStates{
+  height:700px;
+  width: 100%;
+  background-color: #E2E3E4;
 }
 
 #radios{
@@ -26,33 +45,24 @@
 
 }
 
-#compareStates{
-  height:700px;
-  width: 100%;
-  background-color: #E2E3E4;
+
+.column{
+  display: block;
+}
+
+label{
+  display: flex;
 }
 
 
-
-#mapOne {
-  width: 100%
-  margin-top: -15px;
-}
-
-#mapTwo{
- width: 100%
-}
-
+/* StateInfor Title*/
 #statename{
   margin-top: 20px;
   font-size: 37px;
 }
 
-#mapTwo{
-  margin-top: 15px
-}
 
-
+/*lineChart*/
 .tick{
   font-size: 10px;
 }
@@ -61,8 +71,6 @@
   font-size: 12px;
 }
 
-
-/*axix is for bother line and bar charts*/
 .axis {
     font: 10px sans-serif;
   }
@@ -111,9 +119,9 @@
 
 /**{border:1px red solid;}*/
 
+/*bar and pie */
 #barChart div {
     font-size: 0.8em;
-    
     color: #E2E3E4;
     text-align: right;
     padding: 0.5em;
@@ -121,13 +129,9 @@
 
 }
 
-.pieValue, .legend{
-  /*font-size: .9em;*/
-  stroke: #E2E3E4;
-  fill: #E2E3E4;
-  font-weight: 300;
-  font-style: medium;
-
+.barTitle{
+  display: flex;
+  margin-left: 40px;
 }
 
 .legend {
@@ -137,20 +141,16 @@
   width: 40%;
 }
 
-.barTitle{
-  display: flex;
-  margin-left: 40px;
+.pieValue, .legend{
+  stroke: #E2E3E4;
+  fill: #E2E3E4;
+  font-weight: 300;
+  font-style: medium;
+
 }
 
-#legend {
-    padding: 1.5em 0 0 1.5em;
-}
 
-li.key {
-    border-top-width: 15px;
-    border-top-style: solid;
-    font-size: .75em;
-    width: 10%;
-    padding-left: 0;
-    padding-right: 0;
-}
+
+
+
+
