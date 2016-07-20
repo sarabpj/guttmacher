@@ -6,6 +6,7 @@
 
 .story{
   margin-top: 50px;
+  font-family: 'Raleway';
 }
 
 /*US Maps*/
@@ -68,19 +69,14 @@ input[type=radio]{
 
 
 
-/* StateInfor Title*/
+/* StateInformation Title*/
 #statename{
   margin-top: 20px;
   font-size: 37px;
+  font-family: 'Raleway';
 }
 
-.transform {
-  -webkit-transition: all 2s ease;  
-  -moz-transition: all 2s ease;  
-  -o-transition: all 2s ease;  
-  -ms-transition: all 2s ease;  
-  transition: all 2s ease;
-}
+
 
 /*lineChart*/
 .tick{
@@ -151,7 +147,7 @@ input[type=radio]{
 
 .barTitle{
   display: flex;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .legend {

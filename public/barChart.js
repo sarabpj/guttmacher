@@ -86,7 +86,6 @@ function update(data) {
         .attr('x', legendRectSize + 5)
         .attr('y', legendRectSize )
         .text(function(d,i) { 
-          console.log(d, i)
           return d; });
 
     }

@@ -37,9 +37,6 @@ function pieData(clickedState){
           return val['US_State'] === clickedState;
     })[0]
     arr.push({legend:"BIRTHS" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"ABORTIONS" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"FETAL LOSSES" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
-    // console.log(arr2)
-    //current data for chart
-    // arr.push( parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,'')), parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,'')) )    
 
     //run the chart function which appends a graph...
     pieChart(arr);
