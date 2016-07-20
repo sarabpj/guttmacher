@@ -3,7 +3,6 @@ $(document).ready(function(){
           element: document.getElementById('mapTwo'), 
           scope:'usa',
           width: 700,
-          height:480,
           responsive: true,
            fills: {
           defaultFill: '#9D7274'
@@ -67,7 +66,7 @@ function column(columnName){
           })     
 
       var svg = d3.select('#mapTwo svg');
-      svg.append('g').attr('class', 'legendLinear').attr('transform', 'translate(160,0)')
+      svg.append('g').attr('class', 'legendLinear').attr('transform', 'translate(230,0)')
 
       var legendLinear = d3.legend.color().shapeWidth(50).orient('horizontal').scale(colors);
       svg.select('.legendLinear').call(legendLinear)
