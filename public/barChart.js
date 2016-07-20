@@ -58,7 +58,7 @@ function update(data) {
         d3.select("#barChart").append("text")
             .attr('class', 'barTitle')
             .attr("text-anchor", "middle")
-            .text('Number of teen births, by race');
+            .text('Number of teen births, by race: 2011');
 
      legend = d3.select('#barChart')
         .append("g")

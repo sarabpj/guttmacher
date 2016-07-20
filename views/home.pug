@@ -58,16 +58,35 @@ html(lang="en")
     section#compareStates
       div.container-fluid
         div.row
-          div.col-sm-5
-            form.container-fluid#radios
-              label #[input(type='radio' name='dataset' value='PR_15_19' class="column")] Pregnacy Rate 15-19  
-              label #[input(type='radio' name='dataset' value='BR_15_19' class='column')] Birth Rate 15-19  
+          div.col-sm-6
+            form.container#radios
+              p Age
+              label #[input(type='radio' name='dataset' value='PR_15_19' class="column")] Pregnacy Rate 15-19
+              label #[input(type='radio' name='dataset' value='PR_15_17' class="column")] Pregnacy Rate 15-17  
+              label #[input(type='radio' name='dataset' value='PR_18_19' class="column")] Pregnacy Rate 18-19    
+              label #[input(type='radio' name='dataset' value='BR_15_19' class='column')] Birth Rate 15-19
+              label #[input(type='radio' name='dataset' value='BR_15_17' class='column')] Birth Rate 15-17
+              label #[input(type='radio' name='dataset' value='BR_18_19' class='column')] Birth Rate 18-19
+              label #[input(type='radio' name='dataset' value='AR_15_19' class='column')] Abortion Rate 15-19
+              label #[input(type='radio' name='dataset' value='AR_15_17' class='column')] Abortion Rate 15-17
+              label #[input(type='radio' name='dataset' value='AR_18_19' class='column')] Abortion Rate 18-19
+              label #[input(type='radio' name='dataset' value='NoB_15_19' class='column')] Number of Births 15-19
+              label #[input(type='radio' name='dataset' value='NoB_15_17' class='column')] Number of Births 15-17
+              label #[input(type='radio' name='dataset' value='NoB_18_19' class='column')] Number of Births 18-19
+              label #[input(type='radio' name='dataset' value='NoA_15_19' class='column')] Number of Abortions 15-19
+              label #[input(type='radio' name='dataset' value='NoA_15_17' class='column')] Number of Abortions 15-17
+              label #[input(type='radio' name='dataset' value='NoA_18_19' class='column')] Number of Abortions 18-19
+              label #[input(type='radio' name='dataset' value='NoF_15_19' class='column')] Number of Fetal Losses 15-19
+              label #[input(type='radio' name='dataset' value='NoF_15_17' class='column')] Number of Fetal Losses 15-17
+              label #[input(type='radio' name='dataset' value='NoF_18_19' class='column')] Number of Fetal Losses 18-19
+              p Race  
               label #[input(type='radio' name='dataset' value='NoP_H' class='column')] Number of Pregnancies, Hispanic, 15-19 
               label #[input(type='radio' name='dataset' value='NoP_NHB' class='column')] Number of Pregnancies, Nonhispanic Black, 15-19
               label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Number of Pregnancies, Nonhispanic White, 15-19
               label #[input(type='radio' name='dataset' value='NoP_NHO' class='column')] Number of Pregnancies, Nonhispanic Other, 15-19
           div.col-sm-6
             div.img-responsive#mapTwo
+            svg#mapLegend
 
 
 
@@ -77,6 +96,7 @@ html(lang="en")
     script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(type='text/javascript' src="https://d3js.org/d3.v3.js" charset="utf-8")
     script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.20/topojson.min.js')
+    script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.10.0/d3-legend.min.js')
     script(type='text/javascript' src='../d3/map.js')
     script(type='text/javascript' src="../piechart.js")
     script(type='text/javascript' src="../lineChart.js")

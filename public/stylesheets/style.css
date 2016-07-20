@@ -16,29 +16,30 @@
   padding-bottom: 40px
 }
 
-.row{
-  margin-top:3%;
+#radios{
+  margin-top: 50px;
+  display: block;
+  width: 370px;
+  height: 400px;
+  overflow: auto;
+  padding: 5px;
+
 }
+
 #compareStates{
   height:700px;
   width: 100%;
   background-color: #E2E3E4;
 }
 
-/*#mapOne > .datamap{
- margin-left: -10%;
- width: 100%;
 
-}*/
 
 #mapOne {
-  /*position: relative;*/
   width: 100%
   margin-top: -15px;
 }
 
 #mapTwo{
- /*margin-left: -45px;*/
  width: 100%
 }
 
@@ -139,4 +140,17 @@
 .barTitle{
   display: flex;
   margin-left: 40px;
+}
+
+#legend {
+    padding: 1.5em 0 0 1.5em;
+}
+
+li.key {
+    border-top-width: 15px;
+    border-top-style: solid;
+    font-size: .75em;
+    width: 10%;
+    padding-left: 0;
+    padding-right: 0;
 }
