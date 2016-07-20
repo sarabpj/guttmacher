@@ -37,11 +37,11 @@ html(lang="en")
             br
             | State Trends by Age, Race and Ethnicity
           hr.light
-          p Teen pregnancy, birth and abortion rates in the United States all reached new historic lows in 2011, according to two new analyses (national and state) from the Guttmacher Institute. In 2011, about 553,000 pregnancies occurred among teen women aged 15–19, for a national rate of 52.4 pregnancies per 1,000 women in that age-group. This is the lowest rate observed in the last four decades, and it marks a 23% decline from the 2008 teen pregnancy rate of 68.2. National teen birth and abortion rates have also declined sharply: in 2011, there were 31.3 births per 1,000 teen women (down from 40.2 in 2008) and 13.5 abortions per 1,000 teen women (down from 18.1 in 2008).
+          //- p Teen pregnancy, birth and abortion rates in the United States all reached new historic lows in 2011, according to two new analyses (national and state) from the Guttmacher Institute. In 2011, about 553,000 pregnancies occurred among teen women aged 15–19, for a national rate of 52.4 pregnancies per 1,000 women in that age-group. This is the lowest rate observed in the last four decades, and it marks a 23% decline from the 2008 teen pregnancy rate of 68.2. National teen birth and abortion rates have also declined sharply: in 2011, there were 31.3 births per 1,000 teen women (down from 40.2 in 2008) and 13.5 abortions per 1,000 teen women (down from 18.1 in 2008).
           p Although rates of teen pregnancy and its outcomes have declined among all racial and ethnic groups, wide disparities persist. In 2011, pregnancy rates among non-Hispanic black teens (92.6 per 1,000) and Hispanic teens (73.5 per 1,000) were more than double the pregnancy rate for non-Hispanic white teens (35.3 per 1,000). 
 
     section#stateInformation
-      div.container-fluid
+      div.container-fluid.transform
         p.section-heading.text-center#statename Click on a state
         div.row
           div.col-sm-1
@@ -61,7 +61,7 @@ html(lang="en")
         div.row
           div.col-sm-6
             form.container#radios
-              p Age
+              h3.text-center Age
               label #[input(type='radio' name='dataset' value='PR_15_19' class="column")]Pregnancy Rate 15-19
               label #[input(type='radio' name='dataset' value='PR_15_17' class="column")]Pregnancy Rate 15-17  
               label #[input(type='radio' name='dataset' value='PR_18_19' class="column")]Pregnancy Rate 18-19    
@@ -80,15 +80,47 @@ html(lang="en")
               label #[input(type='radio' name='dataset' value='NoF_15_19' class='column')] Number of Fetal Losses 15-19
               label #[input(type='radio' name='dataset' value='NoF_15_17' class='column')] Number of Fetal Losses 15-17
               label #[input(type='radio' name='dataset' value='NoF_18_19' class='column')] Number of Fetal Losses 18-19
-              p Race
-              label #[input(type='radio' name='dataset' value='NoP_H' class='column')] Pregnancy Rate Hispanic 15-19 
-              label #[input(type='radio' name='dataset' value='NoP_NHB' class='column')] Pregnancy Rate non-Hispanic Black 15-19
-              label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Pregnancy Rate non-Hispanic White, 15-19
-              label #[input(type='radio' name='dataset' value='NoP_NHO' class='column')] Pregnancy Rate non-Hispanic 15-19  
+              label #[input(type='radio' name='dataset' value='POP_15_19' class='column')] Population Estimates Among Women 15-19
+              label #[input(type='radio' name='dataset' value='POP_15_17' class='column')] Population Estimates Among Women 15-17
+              label #[input(type='radio' name='dataset' value='POP_18_19' class='column')] Population Estimates Among Women 18-19
+              h3.text-center Race
+              label #[input(type='radio' name='dataset' value='PR_H' class='column')] Pregnancy Rate Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='PR_NHB' class='column')] Pregnancy Rate non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='PR_NHW' class='column')] Pregnancy Rate non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='PR_NHO' class='column')] Pregnancy Rate non-Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='AR_H' class='column')] Abortion Rate Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='AR_NHB' class='column')] Abortion Rate non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='AR_NHW' class='column')] Abortion Rate non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='AR_NHO' class='column')] Abortion Rate non-Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='BR_H' class='column')] Birth Rate Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='BR_NHB' class='column')] Birth Rate non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='BR_NHW' class='column')] Birth Rate non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='BR_NHO' class='column')] Birth Rate non-Hispanic 15-19 
               label #[input(type='radio' name='dataset' value='NoP_H' class='column')] Number of Pregnancies Hispanic 15-19 
               label #[input(type='radio' name='dataset' value='NoP_NHB' class='column')] Number of Pregnancies non-Hispanic Black 15-19
-              label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Number of Pregnancies non-Hispanic White, 15-19
+              label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Number of Pregnancies non-Hispanic White 15-19
               label #[input(type='radio' name='dataset' value='NoP_NHO' class='column')] Number of Pregnancies non-Hispanic 15-19
+              label #[input(type='radio' name='dataset' value='NoA_H' class='column')] Number of Abortions Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='NoA_NHB' class='column')] Number of Abortions non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='NoA_NHW' class='column')] Number of Abortions non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='NoA_NHO' class='column')] Number of Abortions non-Hispanic 15-19
+              label #[input(type='radio' name='dataset' value='NoB_H' class='column')] Number of Births Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='NoB_NHB' class='column')] Number of Births non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='NoB_NHW' class='column')] Number of Births non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='NoB_NHO' class='column')] Number of Births non-Hispanic 15-19
+              label #[input(type='radio' name='dataset' value='NoF_H' class='column')] Number of Fetal Losses Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='NoF_NHB' class='column')] Number of Fetal Losses non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='NoF_NHW' class='column')] Number of Fetal Losses non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='NoF_NHO' class='column')] Number of Fetal Losses non-Hispanic 15-19
+              label #[input(type='radio' name='dataset' value='NoP_H' class='column')] Number of Pregnancies Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='NoP_NHB' class='column')] Number of Pregnancies non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Number of Pregnancies non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='NoP_NHO' class='column')] Number of Pregnancies non-Hispanic 15-19
+              label #[input(type='radio' name='dataset' value='POP_H' class='column')] Population Estimates among Hispanic 15-19 
+              label #[input(type='radio' name='dataset' value='POP_NHB' class='column')] Population Estimates among non-Hispanic Black 15-19
+              label #[input(type='radio' name='dataset' value='POP_NHW' class='column')] Population Estimates among non-Hispanic White 15-19
+              label #[input(type='radio' name='dataset' value='POP_NHO' class='column')] Population Estimates among non-Hispanic 15-19
+              div.col-sm-6
           div.col-sm-6
             div.img-responsive#mapTwo
 

@@ -21,6 +21,7 @@ $("#mapOne").click(function(e){
     $('#statename').text(clickedState)
     pieData(clickedState)
     
+    $('.transform').toggleClass('transform-active');
 });
 
 //resize map  when window changes
