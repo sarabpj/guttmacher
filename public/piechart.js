@@ -119,7 +119,7 @@ function pieChart(arr){
       .style('stroke', color);
 
     legend.append('text')
-      .attr('x', legendRectSize )
+      .attr('x', legendRectSize)
       .attr('y', legendRectSize)
       .text(function(d,i) { 
         console.log(d, i)

@@ -13,7 +13,7 @@
   /*height:760px;*/
   width: 100%;
   background-color: #C3BA98;
-  /*padding-bottom: 40px:;*/
+  padding-bottom: 40px
 }
 
 .row{
@@ -34,6 +34,7 @@
 #mapOne {
   /*position: relative;*/
   width: 100%
+  margin-top: -15px;
 }
 
 #mapTwo{
@@ -74,10 +75,12 @@
 
 .ylabel{
   font-size: .85em;
+  fill: #E2E3E4;
 } 
 
 .xlabel {
   font-size: 1em;
+  fill: #E2E3E4;
 }
 
 
@@ -92,6 +95,11 @@
 
 .x.axis path {
   display: none;
+
+}
+
+.x.axis,.y.axis{
+  fill: #E2E3E4;
 }
 
 .line {
@@ -116,12 +124,19 @@
   /*font-size: .9em;*/
   stroke: #E2E3E4;
   fill: #E2E3E4;
+  font-weight: 300;
+  font-style: medium;
 
 }
 
 .legend {
   display: block;
-  color: #E2E3E4
+  color: #E2E3E4;
+  float:left;
+  width: 40%;
 }
 
-
+.barTitle{
+  display: flex;
+  margin-left: 40px;
+}

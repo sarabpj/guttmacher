@@ -31,7 +31,7 @@ function update(data) {
     var scale = d3.scale.linear()
         .range([0, 400])
         .domain([0, d3.max(data)]);
-    console.log('data', data)
+
     var bars = d3.select("#barChart")
         .selectAll("div")
         .data(data)
@@ -51,11 +51,18 @@ function update(data) {
     bars.style("width", function (d) {return scale(d)/2 +  "px";})
         .text(function (d) {return d;}).style('background-color', function(d){ return color(d)});
 
+                
     if(!legend){
+
+         //xlabel 
+        d3.select("#barChart").append("text")
+            .attr('class', 'barTitle')
+            .attr("text-anchor", "middle")
+            .text('Number of teen births, by race');
 
      legend = d3.select('#barChart')
         .append("g")
-        .attr('class', 'hello')
+        .attr('class', 'barLegend')
         .selectAll("g")
         .data(color.domain().slice(0,4))
         .enter()
