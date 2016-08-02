@@ -8,16 +8,6 @@ router.get('/', function(req,res,next){
   res.render('home')
 })
 
-//current graphs for state
-router.get('/home', function(req,res,next){
-  res.render('layout')
-})
-
-
-//compare states
-router.get('/compare', function(req,res,next){
-  res.render('compare')
-})
 
 
 //complete data file
