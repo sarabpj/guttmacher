@@ -45,6 +45,7 @@ function pieData(clickedState){
 }
 
 var group = null;
+
 //appends pie chat
 function pieChart(arr){
   var data = arr;
@@ -70,8 +71,8 @@ function pieChart(arr){
   if(!group){
   group = canvas.append('svg')
     .attr('width', 285)
-    .attr('height', 160).append('g')
-    .attr('transform', 'translate(80,80)')
+    .attr('height', 250).append('g')
+    .attr('transform', 'translate(100,100)')
 
   var arcs = group.selectAll(".arc")
     .data(pie(dataValue))
@@ -104,11 +105,13 @@ function pieChart(arr){
         // .style('display', 'block')
         .attr('transform', function(d, i) {
           var height = legendRectSize;
-          var x = 165;
-          var y = i * height + 10;
+          var x = 160;
+          var y = i * height + 200;
           return 'translate(' + x + ',' + y + ')';
       });
 
+    legend.append('title')
+          .text('# of women 15-19: 2011')
 
     legend.append('rect')
       .attr('width', legendRectSize)
@@ -117,11 +120,12 @@ function pieChart(arr){
       .style('stroke', color);
 
     legend.append('text')
-      .attr('x', legendRectSize)
-      .attr('y', legendRectSize)
+      .attr('x', legendRectSize + 3)
+      .attr('y', legendRectSize - 3)
       .text(function(d,i) { 
         console.log(d, i)
         return d; });
+
 
 
   } else {
