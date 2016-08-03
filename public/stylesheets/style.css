@@ -1,9 +1,10 @@
+/*about section*/
 #about{
   height:600px;
   background-color: #E2E3E4;
+  background-size: cover;
   width: 100%;
 }
-
 
 
 .story{
@@ -11,16 +12,19 @@
   font-family: 'Raleway';
 }
 
+
 /*US Maps*/
 #mapOne {
   width: 100%;
   margin-top: -15px;
   padding-bottom: 20%; 
+  padding-right: 10%;
 }
 
 #mapTwo{
  width: 100%;
  padding-bottom: 20%; 
+ padding-right: 10%;
  /*margin-top: 15px;*/
 }
 
@@ -29,26 +33,13 @@
 
 }
 
-/*.map-svg-container{
- display: inline-block;
- border: 1px solid red;
- position: relative;
- width: 50%;
- padding-bottom: 20%; 
- vertical-align: middle; 
-}
-*/
-/*Invidual State Information */
-#stateInformation{
-  width: 100%;
-  background-color: #C3BA98;
-}
 
 
 /*compare by  table column by value*/
 #compareStates{
   width: 100%;
   background-color: #E2E3E4;
+  background-size: cover;
 }
 
 #radios{
@@ -79,6 +70,12 @@ input[type=radio]{
 }
 
 
+/*Invidual State Information */
+#stateInformation{
+  width: 100%;
+  background-color: #C3BA98;
+}
+
 
 /* StateInformation Title*/
 #statename{
@@ -90,6 +87,10 @@ input[type=radio]{
 
 
 /*lineChart*/
+#lineChart{
+  align-content: center;
+}
+
 .tick{
   font-size: 10px;
 }
@@ -148,6 +149,7 @@ input[type=radio]{
 /*bar and pie */
 #barChart{
   margin-top: 30px;
+  align-content: center;
 }
 
 #barChart div{
@@ -171,12 +173,22 @@ input[type=radio]{
   width: 40%;
 }
 
+
+#pieChart{
+  align-self: center;
+}
+
 .pieValue, .legend{
   stroke: #E2E3E4;
   fill: #E2E3E4;
   font-weight: 300;
   font-style: medium;
 
+}
+
+.pieTitle{
+  background-color: black;
+  font-family: 'Raleway';
 }
 
 

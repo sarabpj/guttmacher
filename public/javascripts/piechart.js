@@ -113,10 +113,11 @@ function pieChart(arr){
       });
 
     d3.select('#pieChart svg').append('text')
-          .attr('class', 'barTitle')
-          // .attr("text-anchor", "middle")
+          .attr('class', 'pieTitle')
           .attr("text-anchor", "middle")
-          .text('Number of women 15-19: 2011')
+          .text('Number of teens: 2011')
+          .attr('transform', "translate(212,190)")
+
 
     legend.append('rect')
       .attr('width', legendRectSize)
@@ -128,7 +129,6 @@ function pieChart(arr){
       .attr('x', legendRectSize + 10)
       .attr('y', legendRectSize - 3)
       .text(function(d,i) { 
-        console.log(d, i)
         return d; });
 
 
