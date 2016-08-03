@@ -136,6 +136,10 @@ input[type=radio]{
 /**{border:1px red solid;}*/
 
 /*bar and pie */
+#barChart{
+  margin-top: 30px;
+}
+
 #barChart div {
     font-size: 0.8em;
     color: #E2E3E4;

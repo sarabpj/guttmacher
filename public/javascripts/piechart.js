@@ -71,7 +71,7 @@ function pieChart(arr){
   if(!group){
   group = canvas.append('svg')
     .attr('width', 285)
-    .attr('height', 250).append('g')
+    .attr('height', 260).append('g')
     .attr('transform', 'translate(100,100)')
 
   var arcs = group.selectAll(".arc")
@@ -110,8 +110,11 @@ function pieChart(arr){
           return 'translate(' + x + ',' + y + ')';
       });
 
-    legend.append('title')
-          .text('# of women 15-19: 2011')
+    d3.select('#pieChart svg').append('text')
+          .attr('class', 'barTitle')
+          // .attr("text-anchor", "middle")
+          .attr("text-anchor", "middle")
+          .text('Number of women 15-19: 2011')
 
     legend.append('rect')
       .attr('width', legendRectSize)
@@ -120,7 +123,7 @@ function pieChart(arr){
       .style('stroke', color);
 
     legend.append('text')
-      .attr('x', legendRectSize + 3)
+      .attr('x', legendRectSize + 10)
       .attr('y', legendRectSize - 3)
       .text(function(d,i) { 
         console.log(d, i)
