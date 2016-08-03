@@ -53,12 +53,12 @@ html(lang="en")
               //- div.col-sm-6
         div.row
           div.col-sm-6.col-sm-offset-3
-            div.img-responsive#mapOne
+            div.my-svg-container#mapOne
 
     section#compareStates
       div.container-fluid
         div.row
-          div.col-sm-6
+          div.col-sm-4.col-sm-offset-1
             form.container#radios
               h3.text-center Age
               label #[input(type='radio' name='dataset' value='PR_15_19' class="column")]Pregnancy Rate 15-19
@@ -119,9 +119,9 @@ html(lang="en")
               label #[input(type='radio' name='dataset' value='POP_NHB' class='column')] Population Estimates among non-Hispanic Black 15-19
               label #[input(type='radio' name='dataset' value='POP_NHW' class='column')] Population Estimates among non-Hispanic White 15-19
               label #[input(type='radio' name='dataset' value='POP_NHO' class='column')] Population Estimates among non-Hispanic 15-19
-              div.col-sm-6
-          div.col-sm-6
-            div.img-responsive#mapTwo
+              //- div.col-sm-6
+          div.col-sm-4.col-sm-offset-1
+            div.my-svg-container#mapTwo
 
 
 

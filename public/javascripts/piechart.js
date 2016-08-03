@@ -5,7 +5,7 @@ $(document).ready(function(){
       element: document.getElementById('mapOne'), 
       scope:'usa',
       width: 700,
-      responsive: true,
+      height: 400,
       fills: {
         defaultFill: '#587E84'
       }
@@ -28,6 +28,8 @@ $("#mapOne").click(function(e){
 d3.select(window).on('resize', function() {
     map.resize();
 });
+
+
 
 //gives back the data i need for the first
 function pieData(clickedState){

@@ -3,7 +3,8 @@ $(document).ready(function(){
           element: document.getElementById('mapTwo'), 
           scope:'usa',
           width: 700,
-          responsive: true,
+          height: 400,
+          // responsive: true,
            fills: {
           defaultFill: '#9D7274'
            },
@@ -18,15 +19,15 @@ $(".column").click(function(e){
     var columnName = ($(this).val())
 
     column(columnName)
-   
+    
 });
 
-d3.select(window).on('resize', function() {
-    map2.resize();
-//legendLinear.resizes() does not work
+// d3.select(window).on('resize', function sizeChange() {
+//       d3.select("g").attr("transform", "scale(" + $("#mapTwo").width()/900 + ")");
+//       $("svg").height($("#mapTwo").width()*0.618);
 
-    // console.log("WOAH!")
-});
+
+// });
 
     var legendRectSize = 20;
 //takes in the value of current radio, makes a request to my database

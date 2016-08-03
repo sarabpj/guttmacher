@@ -4,6 +4,16 @@
   width: 100%;
 }
 
+.my-svg-container{
+ display: inline-block;
+ position: relative;
+ width: 50%;
+ padding-bottom: 60%; /* depends on svg ratio, for my zebra height/width = 1.2 so padding-bottom = 50% * 1.2 = 60% */
+ 
+ vertical-align: middle; /* top | middle | bottom ... do what you want */
+}
+
+
 .story{
   margin-top: 50px;
   font-family: 'Raleway';
@@ -16,7 +26,7 @@
 }
 
 #mapTwo{
- width: 100%;
+ /*width: 100%;*/
  /*margin-top: 15px;*/
 }
 
