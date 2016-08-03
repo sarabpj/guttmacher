@@ -4,14 +4,6 @@
   width: 100%;
 }
 
-.my-svg-container{
- display: inline-block;
- position: relative;
- width: 50%;
- padding-bottom: 60%; /* depends on svg ratio, for my zebra height/width = 1.2 so padding-bottom = 50% * 1.2 = 60% */
- 
- vertical-align: middle; /* top | middle | bottom ... do what you want */
-}
 
 
 .story{
@@ -23,29 +15,38 @@
 #mapOne {
   width: 100%;
   margin-top: -15px;
+  padding-bottom: 20%; 
 }
 
 #mapTwo{
- /*width: 100%;*/
+ width: 100%;
+ padding-bottom: 20%; 
  /*margin-top: 15px;*/
 }
 
 #mapTwo svg{
   margin-top: 55px;
+
 }
 
-/*Invidual State Infor */
+/*.map-svg-container{
+ display: inline-block;
+ border: 1px solid red;
+ position: relative;
+ width: 50%;
+ padding-bottom: 20%; 
+ vertical-align: middle; 
+}
+*/
+/*Invidual State Information */
 #stateInformation{
-  /*height:760px;*/
   width: 100%;
   background-color: #C3BA98;
-  padding-bottom: 40px
 }
 
 
 /*compare by  table column by value*/
 #compareStates{
-  height:700px;
   width: 100%;
   background-color: #E2E3E4;
 }
@@ -119,7 +120,6 @@ input[type=radio]{
 }
 
 
-
 .grid path,
 .grid line {
   fill: none;
@@ -150,7 +150,7 @@ input[type=radio]{
   margin-top: 30px;
 }
 
-#barChart div {
+#barChart div{
     font-size: 0.8em;
     color: #E2E3E4;
     text-align: right;

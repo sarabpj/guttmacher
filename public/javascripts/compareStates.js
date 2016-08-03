@@ -4,7 +4,6 @@ $(document).ready(function(){
           scope:'usa',
           width: 700,
           height: 400,
-          // responsive: true,
            fills: {
           defaultFill: '#9D7274'
            },
@@ -22,14 +21,8 @@ $(".column").click(function(e){
     
 });
 
-// d3.select(window).on('resize', function sizeChange() {
-//       d3.select("g").attr("transform", "scale(" + $("#mapTwo").width()/900 + ")");
-//       $("svg").height($("#mapTwo").width()*0.618);
 
-
-// });
-
-    var legendRectSize = 20;
+var legendRectSize = 20;
 //takes in the value of current radio, makes a request to my database
 function column(columnName){
   
