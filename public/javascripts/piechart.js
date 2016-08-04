@@ -21,13 +21,8 @@ $("#mapOne").click(function(e){
     $('#statename').text(clickedState)
     pieData(clickedState)
     
-    $('.transform').toggleClass('transform-active');
 });
 
-//resize map  when window changes
-d3.select(window).on('resize', function() {
-    map.resize();
-});
 
 
 
@@ -115,7 +110,7 @@ function pieChart(arr){
     d3.select('#pieChart svg').append('text')
           .attr('class', 'pieTitle')
           .attr("text-anchor", "middle")
-          .text('Number of teens: 2011')
+          .text('Number of ___: 2011')
           .attr('transform', "translate(212,190)")
 
 

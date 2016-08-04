@@ -33,23 +33,21 @@ html(lang="en")
       div.container
         div.col-sm-10.col-sm-offset-1.text-center.story
           h1.section-heading 
-            | United States Teen Pregnancy Trends, 2011: 
-            br
-            | State Trends by Age, Race and Ethnicity
+            | United States Teen Pregnancy Trends
           hr.light
-          h4.text-left Teen pregnancy has been on the decline in the United States since its peak in 1991. In 2010, teen pregnancy rates were 44 percent lower than in 1991. This site uses D3.js graphs to visualize teen pregnancy trends in the United States.
+          h4.text-left This site uses D3.js graphs to visualize teen pregnancy trends in the United States. The data was taken from Kost K and Maddow‐Zimet I, 3 #[i U.S. Teenage Pregnancies, Births and Abortions, 2011: National Trends by Age, Race and Ethnicity,] New York: Guttmacher Institute, 2016. 
 
     section#stateInformation
       div.container-fluid.transform
         p.section-heading.text-center#statename Click on a state
         div.row
-          div.col-sm-1
-          div.col-sm-3.img-responsive#pieChart
+          div.col-sm-1.chartRow
+          div.col-sm-3.chartRow#pieChart
             //- div.col-sm-6
-          div.col-sm-4.img-responsive#lineChart
+          div.col-sm-4.chartRow#lineChart
             //- div.col-sm-4
-          div.col-sm-1
-          div.col-sm-3.img-responsive#barChart
+          div.col-sm-1.chartRow
+          div.col-sm-3.chartRow#barChart
               //- div.col-sm-6
         div.row
           div.col-sm-6.col-sm-offset-3
