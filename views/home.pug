@@ -35,7 +35,9 @@ html(lang="en")
           h1.section-heading 
             | United States Teen Pregnancy Trends
           hr.light
-          h4.text-left This site uses D3.js graphs to visualize teen pregnancy trends in the United States. The data was taken from Kost K and Maddow‐Zimet I, 3 #[i U.S. Teenage Pregnancies, Births and Abortions, 2011: National Trends by Age, Race and Ethnicity,] New York: Guttmacher Institute, 2016. 
+          h4.text-left This site uses D3.js graphs to visualize teen pregnancy trends in the United States. The data is from Kost K and Maddow‐Zimet I, 3 #[i U.S. Teenage Pregnancies, Births and Abortions, 2011: National Trends by Age, Race and Ethnicity,] New York: Guttmacher Institute, 2016. Here is a #[a(href="https://www.guttmacher.org/report/us-teen-pregnancy-trends-2011") link to the full report.] 
+          br
+          h4.text-left The report was orginally in PDF, but I was able to create an API by converting the file into a CSV, and inserted that it into a PSQL database. Once my database was set up, I was able to create routes in Node.js which returned the tables as JSON. My goal is to make the API public and to include other studies.
 
     section#stateInformation
       div.container-fluid.transform

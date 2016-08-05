@@ -54,39 +54,39 @@ function update(data) {
                 
     if(!legend){
 
-         //xlabel 
+             //xlabel 
         d3.select("#barChart").append("text")
             .attr('class', 'barTitle')
             .attr("text-anchor", "middle")
-            .text('Number of teen births, by race: 2011');
+            .text('Number of births, age 15-19, by race');
 
-     legend = d3.select('#barChart')
-        .append("g")
-        .attr('class', 'barLegend')
-        .selectAll("g")
-        .data(color.domain().slice(0,4))
-        .enter()
-        .append('g')
-          .attr('class', 'legend')
-          .attr('transform', function(d, i) {
-            var height = legendRectSize;
-            var x = 0;
-            var y = i * height ;
-            return 'translate(' + x + ',' + y + ')';
-        });
+         legend = d3.select('#barChart')
+            .append("g")
+            .attr('class', 'barLegend')
+            .selectAll("g")
+            .data(color.domain().slice(0,4))
+            .enter()
+            .append('g')
+              .attr('class', 'legend')
+              .attr('transform', function(d, i) {
+                var height = legendRectSize;
+                var x = 0;
+                var y = i * height ;
+                return 'translate(' + x + ',' + y + ')';
+            });
 
-      // console.log('COLor DOMAIN', color.domain())
-      legend.append('div')
-        .attr('width', 10)
-        .attr('height', 10)
-        .style('background-color', function(d){ return color(d)})
-        .style('display', 'inline-block');
+          // console.log('COLor DOMAIN', color.domain())
+          legend.append('div')
+            .attr('width', 10)
+            .attr('height', 10)
+            .style('background-color', function(d){ return color(d)})
+            .style('display', 'inline-block');
 
-      legend.append('text')
-        .attr('x', legendRectSize + 5)
-        .attr('y', legendRectSize )
-        .text(function(d,i) { 
-          return d; });
+          legend.append('text')
+            .attr('x', legendRectSize + 5)
+            .attr('y', legendRectSize )
+            .text(function(d,i) { 
+              return d; });
 
     }
 };

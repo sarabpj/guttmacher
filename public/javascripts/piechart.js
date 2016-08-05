@@ -67,9 +67,9 @@ function pieChart(arr){
   //create svg is none is there
   if(!group){
   group = canvas.append('svg')
-    .attr('width', 285)
+    .attr('width', 290)
     .attr('height', 260).append('g')
-    .attr('transform', 'translate(100,100)')
+    .attr('transform', 'translate(80,100)')
 
   var arcs = group.selectAll(".arc")
     .data(pie(dataValue))
@@ -110,8 +110,8 @@ function pieChart(arr){
     d3.select('#pieChart svg').append('text')
           .attr('class', 'pieTitle')
           .attr("text-anchor", "middle")
-          .text('Number of ___: 2011')
-          .attr('transform', "translate(212,190)")
+          .text('Number of _, aged 15-19')
+          .attr('transform', "translate(212,195)")
 
 
     legend.append('rect')
