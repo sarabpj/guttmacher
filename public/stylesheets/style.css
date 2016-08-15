@@ -49,40 +49,45 @@ html, body {
 
 
 
-/*compare by  table column by value*/
+/*Compare States*/
 #compareStates{
   width: 100%;
   background-color: #E2E3E4;
   background-size: cover;
 }
 
-#radios{
-  margin-top: 100px;
-  display: block;
-  width: 240px;
-  height: 100px;
-  overflow: auto;
-  padding: 5px;
-  border: 1px solid black;
-  padding: 10px;
-  padding-left: 25px;
+.chooseOption{
+  padding-top: 180px;
+  padding-bottom: 40px; 
 }
 
-
-
-.column{
-  display: block;
+.compareOption select{
+  height: 50px;
 }
 
-label{
-  display: flex;
+#ageOption, #raceOption{
+  height: 50px;
+  background-color: #E2E3E4;
   font-family: 'Raleway';
+  font-size: 16px;
+  letter-spacing: 1px;
 }
 
-input[type=radio]{
-  width: 30px;
+
+.ageButton, .raceButton{
+  font-family: 'Raleway';
+  letter-spacing: 1px;
+  border: #FFF solid;
+  color: #FFF;
 }
 
+.backButton{
+  font-family: 'Raleway';
+  letter-spacing: 1px;
+  border: #FFF solid;
+  color: #FFF;
+  margin-top: 10px;
+}
 
 /*Invidual State Information */
 #stateInformation{
@@ -96,6 +101,7 @@ input[type=radio]{
   margin-top: 20px;
   font-size: 37px;
   font-family: 'Raleway';
+  letter-spacing: 3px;
 }
 
 
@@ -105,10 +111,6 @@ input[type=radio]{
 #pieChart{
   align-self: center;
 
-}
-
-
-.pieLegendBox {
 }
 
 .pieLegendText {
@@ -145,8 +147,7 @@ input[type=radio]{
   margin-top: 30px;
   margin-left: 150px;
   align-content: center;
-  /*position:relative;*/
-  /*width:40%;*/
+
 }
 
 .barValue{
@@ -249,18 +250,3 @@ input[type=radio]{
 
 /**{border:1px red solid;}*/
 
-
-
-
-/*FIX THE WHITE SPACE ISSUE*/
-/*ADD MEDIA QUEIRES!!!*/
-/*1410px is the max the bar chart looks good*/
-
-/*The about section will overflow starting under 570  X */
-
-/*Starting from  1000px to 1440px  and less it should be a square pattern.... */
-/*after it should all just be in a row*/
-
-
-/*Comare section section less than  1260 the map and options should be stacked on 
-top of each ofhter and the form box should change to be skinner */

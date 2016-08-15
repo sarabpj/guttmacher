@@ -46,15 +46,10 @@ html(lang="en")
         p.section-heading.text-center#statename Click on a state
         div.row.row-centered
           div.col-xs-12.col-sm-4.col-md-3.col-right#pieChart
-          //- div.col-md-1
-            //- div.col-md-6
           div.col-xs-12.col-sm-5.col-md-4.chartRow#lineChart
-            //- div.col-md-4
-          //- div.col-md-1
           div.col-xs-12.col-sm-12.col-md-3.chartRow#barChart
-              //- div.col-md-6
         div.row.row-centered
-          div.col-xs-12.col-sm-12.col-md-6.col-md-offset-3
+          div.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
             div.map-svg-container#mapOne
 
     section#compareStates
@@ -62,89 +57,72 @@ html(lang="en")
         div.row
           div.col-xs-12.col-sm-12.col-md-3
             div.chooseOption.text-center
-              button(type='button').btn.btn-primary.btn-lg.ageButton Age
-              button(type='button').btn.btn-secondary.btn-lg.raceButton Race
-            div.compareOptions.ageOptions
-              select(name='ageOption')#ageOption
-                optgroup(label='15-19')
-                  option(selected value='PR_15_19') Pregnancy Rate 15-19
-                optgroup(label='15-17')
-                  option(value='PR_15_17') Pregnancy Rate 15-17
-                optgroup(label='18-19')
-                  option(value='PR_18_19') Pregnancy Rate 18-19
-              button.btn-primary.btn-lg.backButton Back
-            div.compareOptions.raceOptions
-              select(name='raceOption')#raceOption
-                optgroup(label='Hispanic')
-                  option(value='PR_H') Pregnancy Rate 
-                optgroup(label='non-Hispanic Black') 
-                  option(value='PR_NHB') Pregnancy Rate 
-                optgroup(label='non-Hispanic White')  
-                  option(value='PR_NHW') Pregnancy Rate 
-                optgroup(label='non-Hispanic Other')  
-                option(value='PR_NHO') Pregnancy Rate 
-              button.btn-primary.btn-lg.backButton Back
-            //- form.container#radios
-            //-   h3.text-center Age
-            //-   label #[input(type='radio' name='dataset' value='PR_15_19' class="column")]Pregnancy Rate 15-19
-            //-   label #[input(type='radio' name='dataset' value='PR_15_17' class="column")]Pregnancy Rate 15-17  
-            //-   label #[input(type='radio' name='dataset' value='PR_18_19' class="column")]Pregnancy Rate 18-19    
-            //-   label #[input(type='radio' name='dataset' value='BR_15_19' class='column')]Birth Rate 15-19
-            //-   label #[input(type='radio' name='dataset' value='BR_15_17' class='column')] Birth Rate 15-17
-              //- label #[input(type='radio' name='dataset' value='BR_18_19' class='column')] Birth Rate 18-19
-              //- label #[input(type='radio' name='dataset' value='AR_15_19' class='column')] Abortion Rate 15-19
-              //- label #[input(type='radio' name='dataset' value='AR_15_17' class='column')] Abortion Rate 15-17
-              //- label #[input(type='radio' name='dataset' value='AR_18_19' class='column')] Abortion Rate 18-19
-              //- label #[input(type='radio' name='dataset' value='NoB_15_19' class='column')] Number of Births 15-19
-              //- label #[input(type='radio' name='dataset' value='NoB_15_17' class='column')] Number of Births 15-17
-              //- label #[input(type='radio' name='dataset' value='NoB_18_19' class='column')] Number of Births 18-19
-              //- label #[input(type='radio' name='dataset' value='NoA_15_19' class='column')] Number of Abortions 15-19
-              //- label #[input(type='radio' name='dataset' value='NoA_15_17' class='column')] Number of Abortions 15-17
-              //- label #[input(type='radio' name='dataset' value='NoA_18_19' class='column')] Number of Abortions 18-19
-              //- label #[input(type='radio' name='dataset' value='NoF_15_19' class='column')] Number of Fetal Losses 15-19
-              //- label #[input(type='radio' name='dataset' value='NoF_15_17' class='column')] Number of Fetal Losses 15-17
-              //- label #[input(type='radio' name='dataset' value='NoF_18_19' class='column')] Number of Fetal Losses 18-19
-              //- label #[input(type='radio' name='dataset' value='POP_15_19' class='column')] Population Estimates Among Women 15-19
-              //- label #[input(type='radio' name='dataset' value='POP_15_17' class='column')] Population Estimates Among Women 15-17
-              //- label #[input(type='radio' name='dataset' value='POP_18_19' class='column')] Population Estimates Among Women 18-19
-              //- h3.text-center Race
-              //- label #[input(type='radio' name='dataset' value='PR_H' class='column')] Pregnancy Rate Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='PR_NHB' class='column')] Pregnancy Rate non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='PR_NHW' class='column')] Pregnancy Rate non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='PR_NHO' class='column')] Pregnancy Rate non-Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='AR_H' class='column')] Abortion Rate Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='AR_NHB' class='column')] Abortion Rate non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='AR_NHW' class='column')] Abortion Rate non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='AR_NHO' class='column')] Abortion Rate non-Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='BR_H' class='column')] Birth Rate Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='BR_NHB' class='column')] Birth Rate non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='BR_NHW' class='column')] Birth Rate non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='BR_NHO' class='column')] Birth Rate non-Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='NoP_H' class='column')] Number of Pregnancies Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='NoP_NHB' class='column')] Number of Pregnancies non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Number of Pregnancies non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='NoP_NHO' class='column')] Number of Pregnancies non-Hispanic 15-19
-              //- label #[input(type='radio' name='dataset' value='NoA_H' class='column')] Number of Abortions Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='NoA_NHB' class='column')] Number of Abortions non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='NoA_NHW' class='column')] Number of Abortions non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='NoA_NHO' class='column')] Number of Abortions non-Hispanic 15-19
-              //- label #[input(type='radio' name='dataset' value='NoB_H' class='column')] Number of Births Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='NoB_NHB' class='column')] Number of Births non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='NoB_NHW' class='column')] Number of Births non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='NoB_NHO' class='column')] Number of Births non-Hispanic 15-19
-              //- label #[input(type='radio' name='dataset' value='NoF_H' class='column')] Number of Fetal Losses Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='NoF_NHB' class='column')] Number of Fetal Losses non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='NoF_NHW' class='column')] Number of Fetal Losses non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='NoF_NHO' class='column')] Number of Fetal Losses non-Hispanic 15-19
-              //- label #[input(type='radio' name='dataset' value='NoP_H' class='column')] Number of Pregnancies Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='NoP_NHB' class='column')] Number of Pregnancies non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='NoP_NHW' class='column')] Number of Pregnancies non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='NoP_NHO' class='column')] Number of Pregnancies non-Hispanic 15-19
-              //- label #[input(type='radio' name='dataset' value='POP_H' class='column')] Population Estimates among Hispanic 15-19 
-              //- label #[input(type='radio' name='dataset' value='POP_NHB' class='column')] Population Estimates among non-Hispanic Black 15-19
-              //- label #[input(type='radio' name='dataset' value='POP_NHW' class='column')] Population Estimates among non-Hispanic White 15-19
-              //- label #[input(type='radio' name='dataset' value='POP_NHO' class='column')] Population Estimates among non-Hispanic 15-19
-              //- div.col-md-6
+              button(type='button').btn.btn-lg.pull-left.ageButton Age
+              button(type='button').btn.btn-lg.pull-right.raceButton Race
+              div.compareOption.ageOption
+                select(name='ageOption')#ageOption
+                  optgroup(label='15-19')
+                    option(value='PR_15_19') Pregnancy Rate 
+                    option(value='AR_15_19') Abortion Rate 
+                    option(value='BR_15_19') Birth Rate
+                    option(value='NoP_15_19') Number of Pregnancies 
+                    option(value='NoA_15_19') Number of Abortions
+                    option(value='NoB_15_19') Number of Births
+                    option(value='NoF_15_19') Number of Fetal Losses 
+                    option(value='POP_15_19') Population Estimates 
+                  optgroup(label='15-17')
+                    option(value='PR_15_17') Pregnancy Rate 
+                    option(value='AR_15_17') Abortion Rate 
+                    option(value='BR_15_17') Birth Rate
+                    option(value='NoP_15_17') Number of Pregnancies 
+                    option(value='NoA_15_17') Number of Abortions
+                    option(value='NoB_15_17') Number of Births
+                    option(value='NoF_15_17') Number of Fetal Losses 
+                    option(value='POP_15_17') Population Estimates 
+                  optgroup(label='18-19')
+                    option(value='PR_18_19') Pregnancy Rate 
+                    option(value='AR_18_19') Abortion Rate 
+                    option(value='BR_18_19') Birth Rate
+                    option(value='NoP_18_19') Number of Pregnancies 
+                    option(value='NoA_18_19') Number of Abortions
+                    option(value='NoB_18_19') Number of Births
+                    option(value='NoF_18_19') Number of Fetal Losses 
+                    option(value='POP_18_19') Population Estimates 
+                br
+                button.btn.btn-sm.pull-right.backButton Back
+              div.compareOption.raceOption
+                select(name='raceOption')#raceOption
+                  optgroup(label='Hispanic')
+                    option(value='PR_H') Pregnancy Rate
+                    option(value='AR_H') Abortion Rate 
+                    option(value='BR_H') Birth Rate 
+                    option(value='NoP_H') Number of Pregnancies 
+                    option(value='NoA_H') Number of Abortions
+                    option(value='NoB_H') Number of Births
+                    option(value='NoF_H') Number of Fetal Losses 
+                    option(value='POP_H') Population Estimates
+                  optgroup(label='non-Hispanic Black') 
+                    option(value='PR_NHB') Pregnancy Rate
+                    option(value='AR_NHB') Abortion Rate 
+                    option(value='BR_NHB') Birth Rate 
+                    option(value='NoP_NHB') Number of Pregnancies 
+                    option(value='NoA_NHB') Number of Abortions
+                    option(value='NoB_NHB') Number of Births
+                    option(value='NoF_NHB') Number of Fetal Losses 
+                    option(value='POP_NHB') Population Estimates
+                  optgroup(label='non-Hispanic White')  
+                    option(value='PR_NHW') Pregnancy Rate
+                    option(value='AR_NHW') Abortion Rate 
+                    option(value='BR_NHW') Birth Rate 
+                    option(value='NoP_NHW') Number of Pregnancies 
+                    option(value='NoA_NHW') Number of Abortions
+                    option(value='NoB_NHW') Number of Births
+                    option(value='NoF_NHW') Number of Fetal Losses 
+                    option(value='POP_NHW') Population Estimates
+                  optgroup(label='non-Hispanic Other')  
+                    option(value='PR_NHO') Pregnancy Rate
+                br 
+                button.btn.btn-sm.pull-right.backButton Back
           div.col-xs-12.col-sm-12.col-md-9
             div.map-svg-container#mapTwo
 

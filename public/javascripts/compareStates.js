@@ -8,36 +8,29 @@ $(document).ready(function(){
           defaultFill: '#9D7274'
            },
            geographyConfig:{
-            popupOnHover: false, // True to show the popup while hovering
+            popupOnHover: false, 
             highlightOnHover: false,
            }
     });
 
-// $(".column").click(function(e){
 
-//     var columnName = ($(this).val())
 
-//     compareStates(columnName)
-    
-// });
-
-$('.compareOptions').hide();
+$('.compareOption').hide();
 
 $('.ageButton').click(function(e){
-  //shows selection
-  // console.log("age!!")
-  $('.ageButton').hide()
-  $('.raceButton').hide();
-  $('.ageOptions').show();
+  $('.ageButton').fadeOut( "slow" )
+  $('.raceButton').fadeOut( "slow",function(e){
+    $('.ageOption').fadeIn( "slow" );   
+  } )
 
 });
 
 
-
 $(".raceButton").click(function(e){
-  $('.ageButton').hide()
-  $('.raceButton').hide();
-  $('.raceOptions').show();
+  $('.ageButton').fadeOut( "slow" )
+  $('.raceButton').fadeOut( "slow",function(e){
+    $('.raceOption').fadeIn( "slow" );   
+  } )
 });
   
 
@@ -49,17 +42,14 @@ $('#ageOption').change(function(){
    var x = $(this).val()
    compareStates(x)}).change()
 
+
+//needs cleaner transitions
 $(".backButton").click(function(e){
-  $('.ageButton').show()
-  $('.raceButton').show()
-  $('.compareOptions').hide()
+  $('.compareOption').fadeOut(2000,function(e){
+    $('.ageButton').fadeIn( 3000 )
+    $('.raceButton').fadeIn( 3000 )    
+  })
 })
-
-
-
-
-
-
 
 
 
@@ -84,14 +74,11 @@ function compareStates(columnName){
                     .domain([d3.min(columnData, function(d){return d.val}), d3.max(columnData, function(d){return d.val})])
                     .range(['#94B8A6', '#C18E3D']);
 
-
-
       function findId(d){
          return d.id
       }
 
-      //selects all the states, and applies the value of the column to the correct state
-      //then give it a fill relative to the value
+
      d3.selectAll("#mapTwo").selectAll('.datamaps-subunit')
           //use a keyfunction to match the map to the data
           .data(columnData, findId)
@@ -105,9 +92,6 @@ function compareStates(columnName){
 
       var legendLinear = d3.legend.color().shapeWidth(50).orient('horizontal').scale(colors);
       svg.select('.legendLinear').call(legendLinear)
-
-      // debugger
-
 
 
 
