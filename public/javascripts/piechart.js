@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 $("#mapOne").click(function(e){
     var temp = e.currentTarget.attributes[1].ownerElement.innerText
-    if(!temp === " "){return clickedState}
+    if(!temp){return temp}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
     $('#statename').text(clickedState)
@@ -110,17 +110,19 @@ function pieChart(arr){
     d3.select('#pieChart svg').append('text')
           .attr('class', 'pieTitle')
           .attr("text-anchor", "middle")
-          .text('Number of _, aged 15-19')
+          .text('Number of Teen')
           .attr('transform', "translate(212,195)")
 
 
     legend.append('rect')
+    .attr('class', 'pieLegendBox')
       .attr('width', legendRectSize)
       .attr('height', legendRectSize)
       .style('fill', color)
       .style('stroke', color);
 
     legend.append('text')
+      .attr('class', 'pieLegendText')
       .attr('x', legendRectSize + 10)
       .attr('y', legendRectSize - 3)
       .text(function(d,i) { 

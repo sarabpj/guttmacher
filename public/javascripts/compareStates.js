@@ -2,8 +2,8 @@ $(document).ready(function(){
      var map2 = new Datamap({
           element: document.getElementById('mapTwo'), 
           scope:'usa',
-          width: 700,
-          height: 400,
+          width: 800,
+          height: 470,
            fills: {
           defaultFill: '#9D7274'
            },
@@ -13,19 +13,60 @@ $(document).ready(function(){
            }
     });
 
-$(".column").click(function(e){
+// $(".column").click(function(e){
 
-    var columnName = ($(this).val())
+//     var columnName = ($(this).val())
 
-    column(columnName)
+//     compareStates(columnName)
     
+// });
+
+$('.compareOptions').hide();
+
+$('.ageButton').click(function(e){
+  //shows selection
+  // console.log("age!!")
+  $('.ageButton').hide()
+  $('.raceButton').hide();
+  $('.ageOptions').show();
+
 });
+
+
+
+$(".raceButton").click(function(e){
+  $('.ageButton').hide()
+  $('.raceButton').hide();
+  $('.raceOptions').show();
+});
+  
+
+$('#raceOption').change(function(){
+   var x = $(this).val()
+    compareStates(x)}).change()
+
+$('#ageOption').change(function(){
+   var x = $(this).val()
+   compareStates(x)}).change()
+
+$(".backButton").click(function(e){
+  $('.ageButton').show()
+  $('.raceButton').show()
+  $('.compareOptions').hide()
+})
+
+
+
+
+
+
+
 
 
 var legendRectSize = 20;
 //takes in the value of current radio, makes a request to my database
-function column(columnName){
-  
+function compareStates(columnName){
+
     d3.json("v2", function(error, data) { 
 
       //return the state and value in an object

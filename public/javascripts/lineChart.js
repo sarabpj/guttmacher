@@ -6,13 +6,13 @@ $("#mapOne").click(function(e){
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
     $('#statename').text(temp)
-    lineData(clickedState)
+    lineGraph(clickedState)
     
 });
 
 var svg;
 //gives back the data line graph
-function lineData(clickedState){
+function lineGraph(clickedState){
 
       var arr =[]
       d3.json('v1/chart2', function(data){
@@ -125,11 +125,11 @@ function lineChart() {
             svg.append("text")
                 .attr('class', 'ylabel')
                 .attr("transform", "rotate(-90)")
-                .attr("x", 0)
+                .attr("x", -20)
                 .attr("y", -45)
                 .attr("dy", ".71em")
                 .attr("text-anchor", "end")
-                .text("# per 1,000 women aged 15-19");
+                .text("# per 1,000 teens");
                 
             //append y axis
             svg.append("g")

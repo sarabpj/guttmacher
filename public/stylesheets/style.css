@@ -1,16 +1,26 @@
+html, body {
+  width: auto !important;
+  overflow-x: hidden !important;
+}
 /*about section*/
 #about{
-  height:600px;
+  height:100%;
+  width: 100%;
+  padding-bottom: 10%;
   background-color: #E2E3E4;
   background-size: cover;
-  width: 100%;
 }
 
 
 .story{
   margin-top: 50px;
   font-family: 'Raleway';
+  background-color: #E2E3E4;
+  background-size: cover;
+}
 
+.story h1{
+  letter-spacing: 3px;
 }
 
 .story h4{
@@ -47,10 +57,10 @@
 }
 
 #radios{
-  margin-top: 50px;
+  margin-top: 100px;
   display: block;
-  width: 440px;
-  height: 400px;
+  width: 240px;
+  height: 100px;
   overflow: auto;
   padding: 5px;
   border: 1px solid black;
@@ -90,9 +100,96 @@ input[type=radio]{
 
 
 
+
+/*pie*/
+#pieChart{
+  align-self: center;
+
+}
+
+
+.pieLegendBox {
+}
+
+.pieLegendText {
+  display: block;
+  stroke: #E2E3E4;
+  fill: #E2E3E4;
+  float:left;
+  letter-spacing: .03em;
+  width: 50%;
+  margin-top: 10px;
+}
+
+
+
+.pieValue{
+  font-weight: 300;
+  font-size:14px;
+  stroke: #E2E3E4;
+  fill: #E2E3E4;
+  letter-spacing: .03em
+} 
+
+
+
+.pieTitle{
+  color: #E2E3E4;
+  font-family: 'Raleway';
+}
+
+
+
+/*bar */
+#barChart{
+  margin-top: 30px;
+  margin-left: 150px;
+  align-content: center;
+  /*position:relative;*/
+  /*width:40%;*/
+}
+
+.barValue{
+    font-size: 12px;
+    color: #E2E3E4;
+    text-align: right;
+    padding: 0.5em;
+    margin: 0.2em;
+
+}
+
+.barTitle{
+  display: flex;
+  margin-left: 20px;
+}
+
+.barLegendGroup div{
+  font-size: 0.8em;
+  color: #E2E3E4;
+  text-align: right;
+  padding: 0.5em;
+  margin: 0.2em;
+
+}
+
+.barLegendBox{
+  margin-right: 8px;
+
+}
+
+.barLegendText{
+  color: #E2E3E4;
+  font-weight: 300;
+  font-style: medium;
+  letter-spacing: 2px;
+}
+
+
 /*lineChart*/
 #lineChart{
   align-content: center;
+  /*position:relative;*/
+  /*width: 40%;*/
 }
 
 .tick{
@@ -115,13 +212,15 @@ input[type=radio]{
 }
 
 .ylabel{
-  font-size: .85em;
+  font-size: 1em;
   fill: #E2E3E4;
+  letter-spacing: .12em
 } 
 
 .xlabel {
   font-size: 1em;
   fill: #E2E3E4;
+  letter-spacing: .12em
 }
 
 
@@ -150,61 +249,18 @@ input[type=radio]{
 
 /**{border:1px red solid;}*/
 
-/*bar and pie */
-#barChart{
-  margin-top: 30px;
-  align-content: center;
-}
-
-#barChart div{
-    font-size: 0.8em;
-    color: #E2E3E4;
-    text-align: right;
-    padding: 0.5em;
-    margin: 0.2em;
-
-}
-
-.barTitle{
-  display: flex;
-  margin-left: 20px;
-}
-
-.legend {
-  display: block;
-  color: #E2E3E4;
-  float:left;
-  width: 40%;
-}
-
-
-#pieChart{
-  align-self: center;
-}
-
-.pieValue, .legend{
-  stroke: #E2E3E4;
-  fill: #E2E3E4;
-  font-weight: 300;
-  font-style: medium;
-
-}
-
-.pieTitle{
-  background-color: black;
-  font-family: 'Raleway';
-}
 
 
 
-/*.chartRow{
-    float: left;
-    margin: 5px;
-    padding: 15px;
-    max-width: 300px;
-    height: 300px;
-    border: 1px solid black;
-}
+/*FIX THE WHITE SPACE ISSUE*/
+/*ADD MEDIA QUEIRES!!!*/
+/*1410px is the max the bar chart looks good*/
+
+/*The about section will overflow starting under 570  X */
+
+/*Starting from  1000px to 1440px  and less it should be a square pattern.... */
+/*after it should all just be in a row*/
 
 
-*/
+/*Comare section section less than  1260 the map and options should be stacked on 
+top of each ofhter and the form box should change to be skinner */

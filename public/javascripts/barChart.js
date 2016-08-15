@@ -8,6 +8,10 @@ $("#mapOne").click(function(e){
     $('#statename').text(temp)
 
     barChart(clickedState)
+
+
+    $('.chartRow').animate({opacity: "show"}, "slow", "easein" )
+
 });
 
     
@@ -26,7 +30,7 @@ function barChart(clickedState) {
 
 };
 
-var legend = null;
+var barLegend = null;
 function update(data) {
     var scale = d3.scale.linear()
         .range([0, 400])
@@ -34,8 +38,7 @@ function update(data) {
 
     var bars = d3.select("#barChart")
         .selectAll("div")
-        .data(data)
-        .attr("class","barChart");
+        .data(data);
      
     var color = d3.scale.ordinal()
     .domain(["Hispanic", "Nonhispanic Black", "Nonhispanic White", "Nonhispanic Other"])
@@ -45,44 +48,45 @@ function update(data) {
     var legendRectSize =15;
  
     // enter divs
-    bars.enter().append("div");
+    bars.enter().append("div").attr("class","barValue");
 
     // update divs
     bars.style("width", function (d) {return scale(d)/2 +  "px";})
         .text(function (d) {return d;}).style('background-color', function(d){ return color(d)});
 
                 
-    if(!legend){
+    if(!barLegend){
 
              //xlabel 
         d3.select("#barChart").append("text")
             .attr('class', 'barTitle')
             .attr("text-anchor", "middle")
-            .text('Number of births, age 15-19, by race');
+            .text('Number of Births, by Race');
 
-         legend = d3.select('#barChart')
+         barLegend = d3.select('#barChart')
             .append("g")
-            .attr('class', 'barLegend')
+            .attr('class', 'barLegendGroup')
             .selectAll("g")
             .data(color.domain().slice(0,4))
             .enter()
             .append('g')
-              .attr('class', 'legend')
+              .attr('class', 'barLegend')
               .attr('transform', function(d, i) {
                 var height = legendRectSize;
-                var x = 0;
+                var x = 10;
                 var y = i * height ;
                 return 'translate(' + x + ',' + y + ')';
             });
 
-          // console.log('COLor DOMAIN', color.domain())
-          legend.append('div')
+          barLegend.append('div')
+            .attr('class', 'barLegendBox')
             .attr('width', 10)
             .attr('height', 10)
             .style('background-color', function(d){ return color(d)})
             .style('display', 'inline-block');
 
-          legend.append('text')
+          barLegend.append('text')
+            .attr('class', 'barLegendText')
             .attr('x', legendRectSize + 5)
             .attr('y', legendRectSize )
             .text(function(d,i) { 
