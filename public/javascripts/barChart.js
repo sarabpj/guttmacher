@@ -39,7 +39,7 @@ function update(data) {
         .data(data);
      
     var color = d3.scale.ordinal()
-    .domain(["Hispanic", "Nonhispanic Black", "Nonhispanic White", "Nonhispanic Other"])
+    .domain(["Hispanic", "Black", "White", "Other"])
     .range(["#BC6542", "#C18E3D", "#E3BF6B", "#587E84"]);
 
 
@@ -80,8 +80,8 @@ function update(data) {
 
           barLegend.append('div')
             .attr('class', 'barLegendBox')
-            .attr('width', 10)
-            .attr('height', 10)
+            .attr('width', 15)
+            .attr('height', 15)
             .style('background-color', function(d){ return color(d)})
             .style('display', 'inline-block');
 

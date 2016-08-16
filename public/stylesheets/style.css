@@ -83,7 +83,6 @@ html, body {
 
 .pieLegendText {
   display: block;
-  /*stroke: #E2E3E4;*/
   fill: #E2E3E4;
   float:left;
   letter-spacing: 1px;
@@ -135,7 +134,7 @@ html, body {
 .barLegendGroup div{
   font-size: 0.8em;
   color: #E2E3E4;
-  text-align: right;
+  /*text-align: right;*/
   padding: 0.5em;
   margin: 0.2em;
 
@@ -143,14 +142,15 @@ html, body {
 
 .barLegendBox{
   margin-right: 8px;
-
+  
 }
 
 .barLegendText{
+  font-size: 14px;
   color: #E2E3E4;
-  font-weight: 300;
-  font-style: medium;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  padding-right: 6px;
+  padding-left: 4px;
 }
 
 
