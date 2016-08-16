@@ -37,7 +37,7 @@ html, body {
 /*US Maps*/
 #mapOne {
   width: 100%;
-  margin-top: -15px;
+  /*margin-top: -15px;*/
   padding-bottom: 20%; 
   padding-right: 10%;
 }
@@ -45,6 +45,8 @@ html, body {
 #mapOne .datamap{
   position: relative;
   right: 30px;
+  margin-left: -65px;
+
 }
 
 
@@ -117,6 +119,7 @@ html, body {
 #barChart{
   margin-top: 30px;
   margin-left: 160px;
+  margin-bottom: 30px;
 }
 
 .barValue{
