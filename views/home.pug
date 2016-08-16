@@ -41,17 +41,19 @@ html(lang="en")
       div.container.transform
         p.section-heading.text-center#stateName Click on a state
         div.row
-          div.col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0.col-md-3.col-md-offset-0.col-right#pieChart
-          div.col-xs-6.col-xs-offset-3.col-sm-5.col-sm-offset-1.col-md-4.col-md-offset-0.chartRow#lineChart
-          div.col-xs-5.col-xs-offset-3.col-sm-8.col-sm-offset-2.col-md-3.col-md-offset-0.chartRow#barChart
+          div.col-xs-6.col-xs-offset-3.col-sm-3.col-sm-offset-0.col-md-3.col-md-offset-0.col-lg-3.col-lg-offset-0.col-right.graphRow#pieChart
+          //- div.col-xs-0.col-xs-offset-0.col-sm-0.col-sm-offset-0.col-md-1.col-md-offset-0
+          div.col-xs-6.col-xs-offset-3.col-sm-5.col-sm-offset-2.col-md-4.col-md-offset-0.graphRow#lineChart
+          //- div.col-xs-0.col-xs-offset-0.col-sm-0.col-sm-offset-0.col-md-1.col-md-offset-0
+          div.col-xs-6.col-xs-offset-3.col-sm-8.col-sm-offset-2.col-md-3.col-md-offset-0.graphRow#barChart
         div.row
           div.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-            div.map-svg-container#mapOne
+            div.map-svg-container.graphRow#mapOne
 
     section#compareStates
       div.container
         div.row
-          div.col-xs-4.col-xs-offset-4.col-sm-4.col-sm-offset-4.col-md-3.col-md-offset-0
+          div.col-xs-2.col-xs-offset-5.col-sm-4.col-sm-offset-4.col-md-3.col-md-offset-0
             div.chooseOption.text-center
               button(type='button').btn.btn-lg.pull-left.ageButton Age
               button(type='button').btn.btn-lg.pull-right.raceButton Race

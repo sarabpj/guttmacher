@@ -2,6 +2,12 @@ html, body {
   width: auto !important;
   overflow-x: hidden !important;
 }
+/*when it is greater than 768*/
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    #stateInformation{background-color: 'blue'}
+
+}
 /*about section*/
 #about{
   height:100%;
@@ -10,6 +16,7 @@ html, body {
   background-color: #E2E3E4;
   background-size: cover;
 }
+
 
 
 .story{
@@ -54,9 +61,6 @@ html, body {
 
 }
 
-
-
-
 /*Invidual State Information */
 #stateInformation{
   width: 100%;
@@ -76,8 +80,8 @@ html, body {
 
 
 /*pie*/
-#pieChart{
-  align-self: center;
+#pieChart svg{
+  margin-left: -20px;
 
 }
 
@@ -112,9 +116,7 @@ html, body {
 /*bar */
 #barChart{
   margin-top: 30px;
-  margin-left: 150px;
-  align-content: center;
-
+  margin-left: 160px;
 }
 
 .barValue{
@@ -131,13 +133,30 @@ html, body {
   margin-left: 20px;
 }
 
+.barLegendGroup{
+  margin-left: 30px;
+  position: relative;
+}
+
 .barLegendGroup div{
-  font-size: 0.8em;
+  font-size: 14px;
   color: #E2E3E4;
   /*text-align: right;*/
   padding: 0.5em;
   margin: 0.2em;
 
+}
+
+
+.barLegend:nth-child(3){
+  position: absolute;
+  top:17px;
+  left: 0px;
+}
+.barLegend:nth-child(4){
+  position: absolute;
+  top:17px;
+  right: 0px;
 }
 
 .barLegendBox{
@@ -155,8 +174,8 @@ html, body {
 
 
 /*lineChart*/
-#lineChart{
-  align-content: center;
+#lineChart svg{
+  margin-left: 15px;
 }
 
 .tick{
