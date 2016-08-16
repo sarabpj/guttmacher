@@ -5,12 +5,10 @@ $("#mapOne").click(function(e){
     if(!temp === ""){return clickedState}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
-    $('#statename').text(temp)
+    $('#stateName').text(temp)
 
     barChart(clickedState)
 
-
-    $('.chartRow').animate({opacity: "show"}, "slow", "easein" )
 
 });
 
@@ -48,7 +46,9 @@ function update(data) {
     var legendRectSize =15;
  
     // enter divs
-    bars.enter().append("div").attr("class","barValue");
+    bars.enter()
+        .append("div")
+        .attr("class","barValue");
 
     // update divs
     bars.style("width", function (d) {return scale(d)/2 +  "px";})

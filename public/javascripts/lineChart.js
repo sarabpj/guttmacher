@@ -5,7 +5,7 @@ $("#mapOne").click(function(e){
     if(!temp === ""){return clickedState}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
-    $('#statename').text(temp)
+    // $('#stateName').text(temp)
     lineGraph(clickedState)
     
 });
@@ -68,7 +68,7 @@ function lineChart() {
             var color_scale = d3.scale
                 .ordinal()
                 .range(["#BC6542", "#C18E3D", "#587E84"])
-                 .domain(d3.range(datasets.length));
+                .domain(d3.range(datasets.length));
 
             var x_axis = d3.svg.axis()
                 .scale(x_scale)
@@ -113,7 +113,7 @@ function lineChart() {
                 .attr("class", "y grid")
                 .call(y_grid) ;
 
-          //xlabel 
+            //xlabel 
             svg.append("text")
                 .attr('class', 'xlabel')
                 .attr('x', 180)
@@ -167,17 +167,39 @@ function lineChart() {
                 .attr("d", function(d) {return draw_line(d); })
                 .attr("stroke", function(_, i) {return color_scale(i);})
                 .attr('fill', 'none') ;
-            
-            data_lines.append("text")
-                .datum(function(d, i) { return {name: datasets[i].label, final: d[d.length-1]}; }) 
-                .attr("transform", function(d) { 
-                    return ( "translate(" + x_scale(d.final[0]) + "," + 
-                             y_scale(d.final[1]) + ")" ) ; })
-                .attr("x", 3)
-                .attr("dy", ".25em")
-                .attr("fill", function(_, i) { return color_scale(i); })
-                .text(function(d) { return d.name; }) ;
-        
+
+     
+            var legendBox = 15;                                
+            var legendSpacing = 4;
+
+            var legend = svg.selectAll('.lineLegend')                     
+              .data(datasets.map(function(d) { return d.label}))                                   
+              .enter()                                                
+              .append('g')                                           
+              .attr('class', 'lineLegend')                                
+              .attr('transform', function(d, i) {                     
+                var height = legendBox + legendSpacing;         
+                var offset =  2 ;    
+                var horz = 240;                      
+                var vert = i * height + offset;                       
+                return 'translate(' + horz + ',' + vert + ')';        
+              });     
+
+            legend.append('rect')                                    
+              .attr('width', legendBox)                         
+              .attr('height', legendBox)                        
+              .style('fill', color_scale)                                   
+              .style('stroke', color_scale);  
+
+            legend.append('text')                                     
+              .attr('x', legendBox + legendSpacing)              
+              .attr('y', legendBox - legendSpacing)              
+              .text(function(d) { return d; });    
+
+
+
+
+
 
 
         }) ;

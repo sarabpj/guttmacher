@@ -35,6 +35,13 @@ html, body {
   padding-right: 10%;
 }
 
+#mapOne .datamap{
+  position: relative;
+  right: 30px;
+}
+
+
+
 #mapTwo{
  width: 100%;
  padding-bottom: 20%; 
@@ -49,61 +56,22 @@ html, body {
 
 
 
-/*Compare States*/
-#compareStates{
-  width: 100%;
-  background-color: #E2E3E4;
-  background-size: cover;
-}
-
-.chooseOption{
-  padding-top: 180px;
-  padding-bottom: 40px; 
-}
-
-.compareOption select{
-  height: 50px;
-}
-
-#ageOption, #raceOption{
-  height: 50px;
-  background-color: #E2E3E4;
-  font-family: 'Raleway';
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-
-
-.ageButton, .raceButton{
-  font-family: 'Raleway';
-  letter-spacing: 1px;
-  border: #FFF solid;
-  color: #FFF;
-}
-
-.backButton{
-  font-family: 'Raleway';
-  letter-spacing: 1px;
-  border: #FFF solid;
-  color: #FFF;
-  margin-top: 10px;
-}
 
 /*Invidual State Information */
 #stateInformation{
   width: 100%;
   background-color: #C3BA98;
+  padding-top: 40px;
 }
 
 
 /* StateInformation Title*/
-#statename{
+#stateName{
   margin-top: 20px;
   font-size: 37px;
   font-family: 'Raleway';
   letter-spacing: 3px;
 }
-
 
 
 
@@ -115,10 +83,10 @@ html, body {
 
 .pieLegendText {
   display: block;
-  stroke: #E2E3E4;
+  /*stroke: #E2E3E4;*/
   fill: #E2E3E4;
   float:left;
-  letter-spacing: .03em;
+  letter-spacing: 1px;
   width: 50%;
   margin-top: 10px;
 }
@@ -130,7 +98,7 @@ html, body {
   font-size:14px;
   stroke: #E2E3E4;
   fill: #E2E3E4;
-  letter-spacing: .03em
+  letter-spacing: 1px;
 } 
 
 
@@ -189,8 +157,6 @@ html, body {
 /*lineChart*/
 #lineChart{
   align-content: center;
-  /*position:relative;*/
-  /*width: 40%;*/
 }
 
 .tick{
@@ -247,6 +213,54 @@ html, body {
   stroke-width: 2.5px;
 }
 
+.lineLegend text{
+  fill: #E2E3E4;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
 
 /**{border:1px red solid;}*/
+
+
+/*Compare States*/
+#compareStates{
+  width: 100%;
+  background-color: #E2E3E4;
+  background-size: cover;
+}
+
+.chooseOption{
+  padding-top: 180px;
+  padding-bottom: 40px; 
+}
+
+.compareOption select{
+  height: 50px;
+}
+
+#ageOption, #raceOption{
+  height: 50px;
+  background-color: #E2E3E4;
+  font-family: 'Raleway';
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+
+.ageButton, .raceButton{
+  font-family: 'Raleway';
+  letter-spacing: 1px;
+  border: #FFF solid;
+  color: #FFF;
+}
+
+.backButton {
+  font-family: 'Raleway';
+  letter-spacing: 1px;
+  border: #FFF solid;
+  color: #FFF;
+  margin-top: 10px;
+  margin-left: 180px;
+}
 

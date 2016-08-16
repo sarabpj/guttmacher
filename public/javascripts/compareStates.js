@@ -19,7 +19,7 @@ $('.compareOption').hide();
 
 $('.ageButton').click(function(e){
   $('.ageButton').fadeOut( "slow" )
-  $('.raceButton').fadeOut( "slow",function(e){
+  $('.raceButton').fadeOut( "slow",function(){
     $('.ageOption').fadeIn( "slow" );   
   } )
 
@@ -28,7 +28,7 @@ $('.ageButton').click(function(e){
 
 $(".raceButton").click(function(e){
   $('.ageButton').fadeOut( "slow" )
-  $('.raceButton').fadeOut( "slow",function(e){
+  $('.raceButton').fadeOut( "slow",function(){
     $('.raceOption').fadeIn( "slow" );   
   } )
 });
@@ -45,9 +45,9 @@ $('#ageOption').change(function(){
 
 //needs cleaner transitions
 $(".backButton").click(function(e){
-  $('.compareOption').fadeOut(2000,function(e){
-    $('.ageButton').fadeIn( 3000 )
-    $('.raceButton').fadeIn( 3000 )    
+  $('.compareOption').fadeOut('slow',function(){
+    $('.ageButton').fadeIn('slow')
+    $('.raceButton').fadeIn('slow')    
   })
 })
 

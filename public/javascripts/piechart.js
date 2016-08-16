@@ -18,7 +18,7 @@ $("#mapOne").click(function(e){
     if(!temp){return temp}
     var clickedState = temp.slice(0, temp.length - 1).replace(/ /g,"_")
 
-    $('#statename').text(clickedState)
+    // $('#stateName').text(clickedState)
     pieData(clickedState)
     
 });
@@ -33,7 +33,7 @@ function pieData(clickedState){
     var stateData = data.filter(val =>{
           return val['US_State'] === clickedState;
     })[0]
-    arr.push({legend:"BIRTHS" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"ABORTIONS" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"FETAL LOSSES" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
+    arr.push({legend:"Births" ,value:parseFloat(stateData.NoB_15_19.replace(/,|_|\[.*\]/g,''))}, {legend:"Abortions" ,value:parseFloat(stateData.NoA_15_19.replace(/,|_|\[.*\]/g,''))},{legend:"Fetal Losses" ,value: parseFloat(stateData.NoF_15_19.replace(/,|_|\[.*\]/g,''))} )   
 
     //run the chart function which appends a graph...
     pieChart(arr);
@@ -51,7 +51,8 @@ function pieChart(arr){
 
   var dataValue = arr.map(function(v,i){return v.value})
   var dataLegend = arr.map(function(v,i){return v.legend})
-  // console.log(dataLegend)
+
+
   //canvas
   var canvas = d3.select('#pieChart')
   //arc path generator
@@ -63,6 +64,7 @@ function pieChart(arr){
   var pie = d3.layout.pie()
 
   var legendRectSize = 15;
+  var rectSpace = 4;
 
   //create svg is none is there
   if(!group){
@@ -92,42 +94,40 @@ function pieChart(arr){
       return d.value})
     .attr('class', 'pieValue')
 
-  var legend = d3.select('#pieChart svg')
+  var pieLegend = d3.select('#pieChart svg')
       .append("g")
       .selectAll("g")
       .data(dataLegend)
       .enter()
       .append('g')
         .attr('class', 'legend')
-        // .style('display', 'block')
         .attr('transform', function(d, i) {
-          var height = legendRectSize;
-          var x = 160;
-          var y = i * height + 200;
-          return 'translate(' + x + ',' + y + ')';
+          var height = legendRectSize + rectSpace;
+          var offset =  height*40 /4 ;    
+          var horz = 170;                      
+          var vert = i * height + offset;                       
+          return 'translate(' + horz + ',' + vert + ')';   
       });
 
     d3.select('#pieChart svg').append('text')
           .attr('class', 'pieTitle')
           .attr("text-anchor", "middle")
           .text('Number of Teen')
-          .attr('transform', "translate(212,195)")
+          .attr('transform', "translate(212,180)")
 
 
-    legend.append('rect')
+    pieLegend.append('rect')
     .attr('class', 'pieLegendBox')
       .attr('width', legendRectSize)
       .attr('height', legendRectSize)
       .style('fill', color)
       .style('stroke', color);
 
-    legend.append('text')
+    pieLegend.append('text')
       .attr('class', 'pieLegendText')
       .attr('x', legendRectSize + 10)
       .attr('y', legendRectSize - 3)
-      .text(function(d,i) { 
-        return d; });
-
+      .text(function(d) { return d; });
 
 
   } else {

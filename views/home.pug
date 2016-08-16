@@ -24,10 +24,6 @@ html(lang="en")
               li: a( href="#about" ) About
               li: a( href="#stateInformation" ) State Information
               li: a( href="#compareStates") Compare States
-    header
-      div.header-content
-        div.header-content-inner
-          h1
     
     section#about
       div.container
@@ -43,19 +39,19 @@ html(lang="en")
 
     section#stateInformation
       div.container.transform
-        p.section-heading.text-center#statename Click on a state
-        div.row.row-centered
-          div.col-xs-12.col-sm-4.col-md-3.col-right#pieChart
-          div.col-xs-12.col-sm-5.col-md-4.chartRow#lineChart
-          div.col-xs-12.col-sm-12.col-md-3.chartRow#barChart
-        div.row.row-centered
+        p.section-heading.text-center#stateName Click on a state
+        div.row
+          div.col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0.col-md-3.col-md-offset-0.col-right#pieChart
+          div.col-xs-6.col-xs-offset-3.col-sm-5.col-sm-offset-1.col-md-4.col-md-offset-0.chartRow#lineChart
+          div.col-xs-5.col-xs-offset-3.col-sm-8.col-sm-offset-2.col-md-3.col-md-offset-0.chartRow#barChart
+        div.row
           div.col-xs-12.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
             div.map-svg-container#mapOne
 
     section#compareStates
       div.container
         div.row
-          div.col-xs-12.col-sm-12.col-md-3
+          div.col-xs-4.col-xs-offset-4.col-sm-4.col-sm-offset-4.col-md-3.col-md-offset-0
             div.chooseOption.text-center
               button(type='button').btn.btn-lg.pull-left.ageButton Age
               button(type='button').btn.btn-lg.pull-right.raceButton Race
@@ -88,8 +84,7 @@ html(lang="en")
                     option(value='NoB_18_19') Number of Births
                     option(value='NoF_18_19') Number of Fetal Losses 
                     option(value='POP_18_19') Population Estimates 
-                br
-                button.btn.btn-sm.pull-right.backButton Back
+                button.btn.btn-sm.backButton Back
               div.compareOption.raceOption
                 select(name='raceOption')#raceOption
                   optgroup(label='Hispanic')
@@ -121,9 +116,8 @@ html(lang="en")
                     option(value='POP_NHW') Population Estimates
                   optgroup(label='non-Hispanic Other')  
                     option(value='PR_NHO') Pregnancy Rate
-                br 
-                button.btn.btn-sm.pull-right.backButton Back
-          div.col-xs-12.col-sm-12.col-md-9
+                button.btn.btn-sm.backButton Back
+          div.col-xs-12.col-xs-offset-0.col-sm-12.col-sm-offset-0.col-md-9.col-md-offset-0
             div.map-svg-container#mapTwo
 
 
